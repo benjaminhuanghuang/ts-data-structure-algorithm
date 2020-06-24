@@ -1,0 +1,20 @@
+{
+  "name": "ts-data-structure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "tsc --watch",
+    "start:dev": "nodemon dist/index.js",
+    "start": "concurrently \"npm:build:dev\" \"npm:start:dev\""
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "concurrently": "^5.0.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.4",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {}
+}
