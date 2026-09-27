@@ -19,6 +19,7 @@ const bracesMap: Map<string, string> = new Map([
 const opening = new Set(bracesMap.values());
 
 // Set < -- > Array
+const nums = [1, 2, 4, 5, 8, 7];
 let arraySet = new Set(nums);
 // Convert set back to array
 let uniqueArray = Array.from(arraySet);
