@@ -1,11 +1,13 @@
-function flattenArray(value) {
+type NestedArray<T> = T | NestedArray<T>[];
+
+function flattenArray<T>(value: NestedArray<T>[]): T[] {
   // Write your code here
-  const result = [];
+  const result: T[] = [];
   // Use a stack to process elements
-  const stack = [...value];
+  const stack: NestedArray<T>[] = [...value];
 
   while (stack.length > 0) {
-    const current = stack.shift();
+    const current = stack.shift()!;
 
     if (Array.isArray(current)) {
       // Add elements to stack in reverse order to maintain original order

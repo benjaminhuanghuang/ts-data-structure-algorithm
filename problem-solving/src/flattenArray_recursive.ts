@@ -1,5 +1,7 @@
-function flattenRecursive(arr) {
-  const result = [];
+type NestedArray<T> = T | NestedArray<T>[];
+
+function flattenRecursive<T>(arr: NestedArray<T>[]): T[] {
+  const result: T[] = [];
 
   for (const element of arr) {
     // If element is an array, recursively flatten it
@@ -13,3 +15,5 @@ function flattenRecursive(arr) {
 
   return result;
 }
+
+export {};
