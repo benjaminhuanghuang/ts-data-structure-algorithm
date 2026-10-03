@@ -1,6 +1,7 @@
 # Binary Search
 
-找值(target 在不在、下标几)用`[l, r]`，找边界(第一个 ≥ target、插入位置)用`[l, r)`
+- 找值(target 在不在、下标几)用`[l, r]`，
+- 找边界(第一个 ≥ target、插入位置)用`[l, r)`
 
 ## Template
 
