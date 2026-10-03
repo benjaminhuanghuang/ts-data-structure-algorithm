@@ -10,8 +10,8 @@ find the smallest value to satisfy g()
 
 ## Find 唯一确定解 (注意不是有唯一最优解: [left, right]
 
-- 367. Valid Perfect Square
-- 1337. The K Weakest Rows in a Matrix (find last position of 1)
+- 1. Valid Perfect Square
+- 1. The K Weakest Rows in a Matrix (find last position of 1)
 
 ```ts
 while (left<=right)
@@ -29,12 +29,12 @@ return -1;
 
 ## Find Smallest element Greater Than Target: [left, right)
 
-- 744. Find Smallest Letter Greater Than Target
-- 35. Search Insert Position
+- 1. Find Smallest Letter Greater Than Target
+- 1. Search Insert Position
 
 ## Find biggest number <= target: [left, right]
 
-441. Arranging Coins
+1. Arranging Coins
 
 1. Find a value
    Time complexity: O(1og (r-1) *[f(m) + g(m)])
@@ -53,7 +53,7 @@ def binary_search(l, r):
     return l # or not found, l is the smallest value can make g(m) is true
 ```
 
-2. The elements in the array are NOT uniqe, find lower_bound or upper_bound
+1. The elements in the array are NOT uniqe, find lower_bound or upper_bound
 
 lower_bound (x): first index of i, such that A[i] >= x
 upper_bound(x): first index of i, such that A[i] > x
