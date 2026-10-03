@@ -100,7 +100,7 @@ Surrounded Regions (LeetCode 130)
 
 ## 14. Backtracking
 
-Letter Combinations of a Phone Number (LeetCode 24)
+Letter Combinations of a Phone Number (LeetCode 17)
 
 Permutations (LeetCode 46)
 
@@ -118,6 +118,6 @@ Coin Change (LeetCode 322)
 
 Longest Common Subsequence (LCS) (LeetCode 1143)
 
-Longest Increasing Subsequence (LIS) (LeetCode 322)
+Longest Increasing Subsequence (LIS) (LeetCode 300)
 
 Partition Equal Subset Sum (LeetCode 416)
