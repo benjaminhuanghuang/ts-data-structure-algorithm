@@ -1,4 +1,3 @@
-
 /*
 9. Palindrome Number
 https://leetcode.com/problems/palindrome-number/
@@ -9,17 +8,17 @@ https://leetcode.com/problems/palindrome-number/
     without converting it into a string.
 */
 function isPalindrome(x: number): boolean {
-    if (x < 0 || (x % 10 === 0 && x !== 0)) {
-        return false;
-    }
+  if (x < 0 || (x % 10 === 0 && x !== 0)) {
+    return false;
+  }
 
-    let revertedNumber = 0;
-    while (x > revertedNumber) {
-        revertedNumber = revertedNumber * 10 + x % 10;
-        x = Math.floor(x / 10);
-    }
+  let revertedNumber = 0;
+  while (x > revertedNumber) {
+    revertedNumber = revertedNumber * 10 + (x % 10);
+    x = Math.floor(x / 10);
+  }
 
-    return x === revertedNumber || x === Math.floor(revertedNumber / 10);
-};
+  return x === revertedNumber || x === Math.floor(revertedNumber / 10);
+}
 
 export { isPalindrome };

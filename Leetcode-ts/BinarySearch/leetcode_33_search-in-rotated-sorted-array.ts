@@ -66,8 +66,8 @@ function search_2(nums: number[], target: number): number {
       nums[mid] < nums[0] == target < nums[0]
         ? nums[mid]
         : target < nums[0]
-        ? Number.MIN_SAFE_INTEGER
-        : Number.MAX_SAFE_INTEGER;
+          ? Number.MIN_SAFE_INTEGER
+          : Number.MAX_SAFE_INTEGER;
     if (x < target) {
       left = mid + 1; // Move right if x is less than target
     } else if (x > target) {

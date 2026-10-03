@@ -22,10 +22,10 @@ Attributes:
 Representations:
 
 - In an adjacency list, the neighbors of each node are stored as a list. Adjacency lists can be implemented
-using a hash map, where the key represents the node, and Its corresponding value represents the list of that node's neighbors.
+  using a hash map, where the key represents the node, and Its corresponding value represents the list of that node's neighbors.
 
 - In an adjacency matrix, the graph is represented as a 20 matrix where matrix[i][j] indicates an
-edge between nodes i and j
+  edge between nodes i and j
 
 ## Traversal
 
@@ -33,7 +33,7 @@ edge between nodes i and j
 def dfs(node: GraphNode, visited: Set[GraphNode]):
     visited.add(node)
     process(node)
-  
+
     for neighbor in node.neighbors:
         if neighbor not in visited:
             dfs(neighbor, visited)

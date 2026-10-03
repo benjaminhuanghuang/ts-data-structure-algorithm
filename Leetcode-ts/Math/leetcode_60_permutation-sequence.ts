@@ -20,25 +20,25 @@ http://bangbingsyb.blogspot.com/2014/11/leetcode-permutation-sequence.html
 */
 
 function getPermutation(n: number, k: number): string {
-    let ret = '';
-    const factorial: number[] = new Array(n).fill(1);
-    const num: string[] = new Array(n);
+  let ret = "";
+  const factorial: number[] = new Array(n).fill(1);
+  const num: string[] = new Array(n);
 
-    for (let i = 1; i < n; i++) {
-        factorial[i] = factorial[i - 1] * i;
-    }
+  for (let i = 1; i < n; i++) {
+    factorial[i] = factorial[i - 1] * i;
+  }
 
-    for (let i = 0; i < n; i++) {
-        num[i] = (i + 1).toString();
-    }
+  for (let i = 0; i < n; i++) {
+    num[i] = (i + 1).toString();
+  }
 
-    k--;
-    for (let i = n; i >= 1; i--) {
-        const j = Math.floor(k / factorial[i - 1]);
-        k %= factorial[i - 1];
-        ret += num[j];
-        num.splice(j, 1);
-    }
+  k--;
+  for (let i = n; i >= 1; i--) {
+    const j = Math.floor(k / factorial[i - 1]);
+    k %= factorial[i - 1];
+    ret += num[j];
+    num.splice(j, 1);
+  }
 
-    return ret;
-};
+  return ret;
+}

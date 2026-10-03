@@ -6,16 +6,14 @@ https://leetcode.com/problems/critical-connections-in-a-network/
 [Amazon]
 */
 
-
 /*
     Find bridges in a graph, remove them will increase the nubmer of
     connected components. 
     https://www.youtube.com/watch?v=mKUsbABiwBI
 */
 function criticalConnections(n: number, connections: number[][]): number[][] {
-    return [];  
-};
-
+  return [];
+}
 
 /*
 HuaHua Solution: Tarjan

@@ -5,7 +5,7 @@
 
 function minimumSpanningTree(
   edges: [number, number, number][],
-  n: number,
+  n: number
 ): [number, number][] {
   const adj: Map<number, [number, number][]> = new Map();
   for (let i = 1; i <= n; i++) {

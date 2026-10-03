@@ -23,7 +23,7 @@ function dfsHelper(s1: string, s2: string, i1: number, i2: number): number {
   } else {
     return Math.max(
       dfsHelper(s1, s2, i1 + 1, i2),
-      dfsHelper(s1, s2, i1, i2 + 1),
+      dfsHelper(s1, s2, i1, i2 + 1)
     );
   }
 }
@@ -33,7 +33,7 @@ function memoization(s1: string, s2: string): number {
   const N = s1.length,
     M = s2.length;
   const cache: number[][] = Array.from({ length: N }, () =>
-    new Array(M).fill(-1),
+    new Array(M).fill(-1)
   );
   return memoHelper(s1, s2, 0, 0, cache);
 }
@@ -43,7 +43,7 @@ function memoHelper(
   s2: string,
   i1: number,
   i2: number,
-  cache: number[][],
+  cache: number[][]
 ): number {
   if (i1 === s1.length || i2 === s2.length) {
     return 0;
@@ -57,7 +57,7 @@ function memoHelper(
   } else {
     cache[i1][i2] = Math.max(
       memoHelper(s1, s2, i1 + 1, i2, cache),
-      memoHelper(s1, s2, i1, i2 + 1, cache),
+      memoHelper(s1, s2, i1, i2 + 1, cache)
     );
   }
 
@@ -69,7 +69,7 @@ function dp(s1: string, s2: string): number {
   const N = s1.length,
     M = s2.length;
   const dp: number[][] = Array.from({ length: N + 1 }, () =>
-    new Array(M + 1).fill(0),
+    new Array(M + 1).fill(0)
   );
 
   for (let i = 0; i < N; i++) {

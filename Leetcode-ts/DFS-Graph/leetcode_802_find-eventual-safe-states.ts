@@ -22,7 +22,7 @@ enum State {
   UNKNOWN,
   VISITING,
   SAFE,
-  UNSAFE
+  UNSAFE,
 }
 
 function eventualSafeNodes(graph: number[][]): number[] {
@@ -40,10 +40,11 @@ function eventualSafeNodes(graph: number[][]): number[] {
 
 function dfs(graph: number[][], cur: number, states: State[]): State {
   if (states[cur] === State.VISITING) {
-    return states[cur] = State.UNSAFE;
+    return (states[cur] = State.UNSAFE);
   }
 
-  if (states[cur] !== State.UNKNOWN) { // is visited
+  if (states[cur] !== State.UNKNOWN) {
+    // is visited
     return states[cur];
   }
 
@@ -51,12 +52,12 @@ function dfs(graph: number[][], cur: number, states: State[]): State {
 
   for (const next of graph[cur]) {
     if (dfs(graph, next, states) === State.UNSAFE) {
-      states[cur] = State.UNSAFE;  // has neighbor that is unsafe
+      states[cur] = State.UNSAFE; // has neighbor that is unsafe
       return State.UNSAFE;
     }
   }
 
-  return states[cur] = State.SAFE;
+  return (states[cur] = State.SAFE);
 }
 
-export { }
+export {};

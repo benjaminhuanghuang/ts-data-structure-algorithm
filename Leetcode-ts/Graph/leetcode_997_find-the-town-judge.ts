@@ -13,19 +13,19 @@ Space complexity: O(N)
 
 */
 function findJudge(n: number, trust: number[][]): number {
-    // N people, 1 to N
-    const degrees: number[] = new Array(n + 1).fill(0); // N people, 1 to N
+  // N people, 1 to N
+  const degrees: number[] = new Array(n + 1).fill(0); // N people, 1 to N
 
-    for (const t of trust) {
-        degrees[t[0]]--;
-        degrees[t[1]]++;
+  for (const t of trust) {
+    degrees[t[0]]--;
+    degrees[t[1]]++;
+  }
+
+  for (let i = 1; i <= n; ++i) {
+    if (degrees[i] === n - 1) {
+      return i;
     }
+  }
 
-    for (let i = 1; i <= n; ++i) {
-        if (degrees[i] === n - 1) {
-            return i;
-        }
-    }
-
-    return -1;
-};
+  return -1;
+}

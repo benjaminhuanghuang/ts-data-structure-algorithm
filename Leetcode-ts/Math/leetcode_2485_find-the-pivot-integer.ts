@@ -13,12 +13,12 @@ x * (x + 1) = n * (n + 1).
 */
 
 function pivotInteger(n: number): number {
-    const sumOfIntegers = Math.floor((n * (n + 1)) / 2);
+  const sumOfIntegers = Math.floor((n * (n + 1)) / 2);
 
-    // Find the integer part of the square root of the sum.
-    const integerRoot = Math.floor(Math.sqrt(sumOfIntegers));
+  // Find the integer part of the square root of the sum.
+  const integerRoot = Math.floor(Math.sqrt(sumOfIntegers));
 
-    // Check if the square of the integer root is exactly equal to the sum of integers.
-    // If it is, then 'integerRoot' is the pivot integer we're looking for.
-    return integerRoot * integerRoot === sumOfIntegers ? integerRoot : -1;
-};
+  // Check if the square of the integer root is exactly equal to the sum of integers.
+  // If it is, then 'integerRoot' is the pivot integer we're looking for.
+  return integerRoot * integerRoot === sumOfIntegers ? integerRoot : -1;
+}

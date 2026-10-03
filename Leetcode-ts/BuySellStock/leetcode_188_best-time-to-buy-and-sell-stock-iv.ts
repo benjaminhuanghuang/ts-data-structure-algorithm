@@ -21,27 +21,27 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
   
 */
 function maxProfit(k: number, prices: number[]): number {
-    if (k > prices.length) {
-        let res = 0;
-        for (let i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1]) {
-                res += prices[i] - prices[i - 1];
-            }
-        }
-        return res;
+  if (k > prices.length) {
+    let res = 0;
+    for (let i = 1; i < prices.length; i++) {
+      if (prices[i] > prices[i - 1]) {
+        res += prices[i] - prices[i - 1];
+      }
     }
+    return res;
+  }
 
-    const sell: number[] = new Array(k + 1).fill(0);
-    const buy: number[] = new Array(k + 1).fill(Number.MIN_SAFE_INTEGER);
+  const sell: number[] = new Array(k + 1).fill(0);
+  const buy: number[] = new Array(k + 1).fill(Number.MIN_SAFE_INTEGER);
 
-    for (let i = 0; i < prices.length; i++) {
-        for (let j = k; j > 0; j--) {
-            sell[j] = Math.max(sell[j], buy[j] + prices[i]);
-            buy[j] = Math.max(buy[j], sell[j - 1] - prices[i]);
-        }
+  for (let i = 0; i < prices.length; i++) {
+    for (let j = k; j > 0; j--) {
+      sell[j] = Math.max(sell[j], buy[j] + prices[i]);
+      buy[j] = Math.max(buy[j], sell[j - 1] - prices[i]);
     }
+  }
 
-    return sell[k];
-};
+  return sell[k];
+}
 
-export{}
+export {};

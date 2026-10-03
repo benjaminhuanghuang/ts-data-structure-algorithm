@@ -17,7 +17,7 @@ function helper2(
   i: number,
   nums: number[],
   curSet: number[],
-  subsets: number[][],
+  subsets: number[][]
 ): void {
   if (i >= nums.length) {
     subsets.push([...curSet]);

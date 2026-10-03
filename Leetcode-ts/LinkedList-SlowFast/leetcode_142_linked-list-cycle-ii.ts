@@ -4,7 +4,7 @@
 https://leetcode.com/problems/linked-list-cycle-ii/
 */
 
-import { ListNode } from '../Common/ListNode';
+import { ListNode } from "../Common/ListNode";
 
 /*
      https://www.jianshu.com/p/0420720ce32f
@@ -23,27 +23,26 @@ import { ListNode } from '../Common/ListNode';
 
    */
 
-
 function detectCycle(head: ListNode | null): ListNode | null {
-    if (!head || !head.next) {
-        return null;
-    }
-
-    let fast: ListNode | null = head;
-    let slow: ListNode | null = head;
-
-    while (fast && fast.next) {
-        fast = fast.next.next;
-        slow = slow!.next;
-
-        if (fast === slow) {
-            fast = head;
-            while (fast !== slow) {
-                fast = fast!.next;
-                slow = slow!.next;
-            }
-            return slow;
-        }
-    }
+  if (!head || !head.next) {
     return null;
-};
+  }
+
+  let fast: ListNode | null = head;
+  let slow: ListNode | null = head;
+
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow!.next;
+
+    if (fast === slow) {
+      fast = head;
+      while (fast !== slow) {
+        fast = fast!.next;
+        slow = slow!.next;
+      }
+      return slow;
+    }
+  }
+  return null;
+}

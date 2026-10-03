@@ -6,7 +6,6 @@ find the smallest value to satisfy g()
 
 ```ts
 
-
 ```
 
 ## Find 唯一确定解 (注意不是有唯一最优解: [left, right]
@@ -38,8 +37,8 @@ return -1;
 441. Arranging Coins
 
 1. Find a value
-Time complexity: O(1og (r-1) *[f(m) + g(m)])
-Space complexity: O(1)
+   Time complexity: O(1og (r-1) *[f(m) + g(m)])
+   Space complexity: O(1)
 
 ```
 // Search range: [l, r)
@@ -92,20 +91,18 @@ def upper bound (A, val, l, r):
 Template 1: Search a value:
 
 ```js
-while(l <= r)
-l = mid + 1
-r = mid -1
+while (l <= r) l = mid + 1;
+r = mid - 1;
 ```
 
 Template 2: Find a value with condition, like a number bigger than 4
 
 ```js
-while(l < r)
-l = mid
-r = mid -1
-or
-l = mid+1
-r = mid
+while (l < r) l = mid;
+r = mid - 1;
+or;
+l = mid + 1;
+r = mid;
 ```
 
 Find the first occurrence of 2 in array [1,1,2,2,2,6,7]
@@ -115,6 +112,5 @@ Find the last occurrence of 2 in array [1,1,2,2,2,6,7]
 Template 3: general
 
 ```js
-while(l< r-1)
-l = mid, r = mid 
+while (l < r - 1) ((l = mid), (r = mid));
 ```

@@ -5,12 +5,12 @@ A priority queue is a concept, and a heap is how you implement it efficiently.
 最小堆：父节点 ≤ 子节点
 堆数组: [1, 2, 4, 3]
 二叉树:
-      1
-     / \
-    2   4
-   /
-  3
-  
+1
+/ \
+2 4
+/
+3
+
 最大堆：父节点 ≥ 子节点
 
 insert: 插入新元素 时，新元素通常放在数组末尾。将它一路“上浮”到正确的位置，

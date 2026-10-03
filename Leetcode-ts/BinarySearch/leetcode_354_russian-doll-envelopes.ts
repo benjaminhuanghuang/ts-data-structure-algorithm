@@ -4,7 +4,6 @@
 https://leetcode.com/problems/russian-doll-envelopes/
 */
 
-
 /*
 Approach: Binary Search + DP
 https://www.cnblogs.com/grandyang/p/5568818.html
@@ -15,31 +14,33 @@ https://www.cnblogs.com/grandyang/p/5568818.html
 */
 
 function maxEnvelopes(envelopes: number[][]): number {
-    let dp: number[] = [];
+  let dp: number[] = [];
 
-    // Sort envelopes by width ascending and by height descending when widths are the same
-    envelopes.sort((a, b) => {
-        if (a[0] === b[0]) {
-            return b[1] - a[1]; // Sort by height descending if widths are the same
-        }
-        return a[0] - b[0]; // Otherwise, sort by width ascending
-    });
-
-    for (let i = 0; i < envelopes.length; ++i) {
-        let left = 0, right = dp.length, t = envelopes[i][1];
-        while (left < right) {
-            let mid = left + Math.floor((right - left) / 2);
-            if (dp[mid] < t) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
-        if (right >= dp.length) {
-            dp.push(t);
-        } else {
-            dp[right] = t;
-        }
+  // Sort envelopes by width ascending and by height descending when widths are the same
+  envelopes.sort((a, b) => {
+    if (a[0] === b[0]) {
+      return b[1] - a[1]; // Sort by height descending if widths are the same
     }
-    return dp.length;
+    return a[0] - b[0]; // Otherwise, sort by width ascending
+  });
+
+  for (let i = 0; i < envelopes.length; ++i) {
+    let left = 0,
+      right = dp.length,
+      t = envelopes[i][1];
+    while (left < right) {
+      let mid = left + Math.floor((right - left) / 2);
+      if (dp[mid] < t) {
+        left = mid + 1;
+      } else {
+        right = mid;
+      }
+    }
+    if (right >= dp.length) {
+      dp.push(t);
+    } else {
+      dp[right] = t;
+    }
+  }
+  return dp.length;
 }

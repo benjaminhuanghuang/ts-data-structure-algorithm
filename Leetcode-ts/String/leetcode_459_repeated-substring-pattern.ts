@@ -6,21 +6,21 @@ https://leetcode.com/problems/repeated-substring-pattern/
 [Google]
 */
 function repeatedSubstringPattern(s: string): boolean {
-    const n = s.length;
+  const n = s.length;
 
-    for (let len = Math.floor(n / 2); len >= 1; --len) {
-        if (n % len === 0) {
-            const count = Math.floor(n / len);
-            /*
+  for (let len = Math.floor(n / 2); len >= 1; --len) {
+    if (n % len === 0) {
+      const count = Math.floor(n / len);
+      /*
             为什么用从0开始的len个字符重复count次？因为如果s必须包含从0开始的字符
             */
-            const t = s.substring(0, len).repeat(count);
-            if (t === s) {
-                return true;
-            }
-        }
+      const t = s.substring(0, len).repeat(count);
+      if (t === s) {
+        return true;
+      }
     }
-    return false;
+  }
+  return false;
 }
 /*
     https://www.youtube.com/watch?v=9qH-M4SKpj0
@@ -41,5 +41,5 @@ function repeatedSubstringPattern(s: string): boolean {
     对于任意j，s[j % n] = s[(j + i) % n]
 */
 function repeatedSubstringPattern2(s: string): boolean {
-    return (s + s).substring(1, s.length * 2 - 1).includes(s);
-};
+  return (s + s).substring(1, s.length * 2 - 1).includes(s);
+}

@@ -4,8 +4,6 @@
 https://leetcode.com/problems/trapping-rain-water/
 */
 
-
-
 /*
 Huahua
 https://www.youtube.com/watch?v=StH5vntauyQ
@@ -21,16 +19,16 @@ Time complexity: O(N^2)   // search whole array for each slot to find max left a
 Space complexity: O(1)
 */
 function trap_BruteForce_TLE(height: number[]): number {
-    const n = height.length;
-    let ans = 0;
+  const n = height.length;
+  let ans = 0;
 
-    for (let i = 0; i < n; i++) {
-        const l = Math.max(...height.slice(0, i + 1));   // duplicated operation
-        const r = Math.max(...height.slice(i));
-        ans += Math.min(l, r) - height[i];
-    }
+  for (let i = 0; i < n; i++) {
+    const l = Math.max(...height.slice(0, i + 1)); // duplicated operation
+    const r = Math.max(...height.slice(i));
+    ans += Math.min(l, r) - height[i];
+  }
 
-    return ans;
+  return ans;
 }
 /*
 Approach 2: DP
@@ -47,22 +45,22 @@ Time complexity: 0(n)
 Space complexity: 0(n)
 */
 function trap_DP(height: number[]): number {
-    const n = height.length;
-    const l = new Array(n).fill(0);
-    const r = new Array(n).fill(0);
-    let ans = 0;
+  const n = height.length;
+  const l = new Array(n).fill(0);
+  const r = new Array(n).fill(0);
+  let ans = 0;
 
-    for (let i = 0; i < n; ++i) {
-        l[i] = i === 0 ? height[i] : Math.max(l[i - 1], height[i]);
-    }
+  for (let i = 0; i < n; ++i) {
+    l[i] = i === 0 ? height[i] : Math.max(l[i - 1], height[i]);
+  }
 
-    for (let i = n - 1; i >= 0; --i) {
-        r[i] = i === n - 1 ? height[i] : Math.max(r[i + 1], height[i]);
-    }
+  for (let i = n - 1; i >= 0; --i) {
+    r[i] = i === n - 1 ? height[i] : Math.max(r[i + 1], height[i]);
+  }
 
-    for (let i = 0; i < n; ++i) {
-        ans += Math.min(l[i], r[i]) - height[i];
-    }
+  for (let i = 0; i < n; ++i) {
+    ans += Math.min(l[i], r[i]) - height[i];
+  }
 
-    return ans;
+  return ans;
 }

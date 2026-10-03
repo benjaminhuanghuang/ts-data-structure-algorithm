@@ -4,7 +4,7 @@
 https://leetcode.com/problems/find-duplicate-subtrees/
 */
 
-import { TreeNode } from '../Common/TreeNode';
+import { TreeNode } from "../Common/TreeNode";
 
 /*
 https://www.youtube.com/watch?v=LYU3y0-59_k FLAG高频精选面试题讲解
@@ -28,64 +28,68 @@ Approach 3: Global Value Numbering
 */
 let nextNumber = 1;
 function numberNodes(
-    root: TreeNode | null,
-    nodeNumbering: Map<TreeNode, number>,
-    expressionNumbering: Map<string, number>
+  root: TreeNode | null,
+  nodeNumbering: Map<TreeNode, number>,
+  expressionNumbering: Map<string, number>
 ): number {
-    if (root === null) {
-        return 0;
-    }
+  if (root === null) {
+    return 0;
+  }
 
-    const leftNumber = numberNodes(root.left, nodeNumbering, expressionNumbering);
-    const rightNumber = numberNodes(root.right, nodeNumbering, expressionNumbering);
+  const leftNumber = numberNodes(root.left, nodeNumbering, expressionNumbering);
+  const rightNumber = numberNodes(
+    root.right,
+    nodeNumbering,
+    expressionNumbering
+  );
 
-    const expression = new Expression(root.val, leftNumber, rightNumber);
-    const expressionKey = expression.hashCode().toString();
+  const expression = new Expression(root.val, leftNumber, rightNumber);
+  const expressionKey = expression.hashCode().toString();
 
-    let rootNumber = expressionNumbering.get(expressionKey);
-    if (rootNumber === undefined) {
-        rootNumber = nextNumber;
-        nextNumber++;
-        expressionNumbering.set(expressionKey, rootNumber);
-    }
+  let rootNumber = expressionNumbering.get(expressionKey);
+  if (rootNumber === undefined) {
+    rootNumber = nextNumber;
+    nextNumber++;
+    expressionNumbering.set(expressionKey, rootNumber);
+  }
 
-    nodeNumbering.set(root, rootNumber);
-    return rootNumber;
+  nodeNumbering.set(root, rootNumber);
+  return rootNumber;
 }
 class Expression {
-    val: number;
-    leftNumber: number;
-    rightNumber: number;
+  val: number;
+  leftNumber: number;
+  rightNumber: number;
 
-    constructor(val: number, leftNumber: number, rightNumber: number) {
-        this.val = val;
-        this.leftNumber = leftNumber;
-        this.rightNumber = rightNumber;
-    }
+  constructor(val: number, leftNumber: number, rightNumber: number) {
+    this.val = val;
+    this.leftNumber = leftNumber;
+    this.rightNumber = rightNumber;
+  }
 
-    // Overriding equals and hashCode (or their TypeScript equivalents) may be necessary for correct map behavior.
-    equals(other: Expression): boolean {
-        return this.val === other.val &&
-            this.leftNumber === other.leftNumber &&
-            this.rightNumber === other.rightNumber;
-    }
+  // Overriding equals and hashCode (or their TypeScript equivalents) may be necessary for correct map behavior.
+  equals(other: Expression): boolean {
+    return (
+      this.val === other.val &&
+      this.leftNumber === other.leftNumber &&
+      this.rightNumber === other.rightNumber
+    );
+  }
 
-    // Implementing a hash function for use in a map.
-    hashCode(): number {
-        const prime = 31;
-        let result = 1;
-        result = prime * result + this.val;
-        result = prime * result + this.leftNumber;
-        result = prime * result + this.rightNumber;
-        return result;
-    }
+  // Implementing a hash function for use in a map.
+  hashCode(): number {
+    const prime = 31;
+    let result = 1;
+    result = prime * result + this.val;
+    result = prime * result + this.leftNumber;
+    result = prime * result + this.rightNumber;
+    return result;
+  }
 }
 
 function findDuplicateSubtrees(root: TreeNode | null): Array<TreeNode | null> {
-    return [];
-};
-
-
+  return [];
+}
 
 /*
 Hua Hua https://www.youtube.com/watch?v=JLK92dbTt8k
@@ -106,53 +110,54 @@ Approach 2: Assign a unique number to each node
     Space Complexity: O(N)
 */
 
-
 function findDuplicateSubtrees_HuaHua(root: TreeNode | null): TreeNode[] {
-    const counts: Map<string, number> = new Map();
-    const ans: TreeNode[] = [];
-    serialize(root, counts, ans);
-    return ans;
+  const counts: Map<string, number> = new Map();
+  const ans: TreeNode[] = [];
+  serialize(root, counts, ans);
+  return ans;
 }
 
+function serialize(
+  root: TreeNode | null,
+  counts: Map<string, number>,
+  ans: TreeNode[]
+): string {
+  if (!root) return "#";
+  // key of the root
+  const key = `${root.val},${serialize(root.left, counts, ans)},${serialize(root.right, counts, ans)}`;
+  counts.set(key, (counts.get(key) ?? 0) + 1); // key sets
 
-function serialize(root: TreeNode | null, counts: Map<string, number>, ans: TreeNode[]): string {
-    if (!root) return "#";
-    // key of the root
-    const key = `${root.val},${serialize(root.left, counts, ans)},${serialize(root.right, counts, ans)}`;
-    counts.set(key, (counts.get(key) ?? 0) + 1);   // key sets
+  if (counts.get(key) === 2) {
+    ans.push(root);
+  }
 
-    if (counts.get(key) === 2) {
-        ans.push(root);
-    }
-
-    return key;
+  return key;
 }
-
 
 function findDuplicateSubtrees_Huahua2(root: TreeNode | null): TreeNode[] {
-    // key: id, value: count
-    const counts: Map<string, number> = new Map();
+  // key: id, value: count
+  const counts: Map<string, number> = new Map();
 
-    const ans: TreeNode[] = [];
-    getId(root, counts, ans);
-    return ans;
+  const ans: TreeNode[] = [];
+  getId(root, counts, ans);
+  return ans;
 }
 
 function getId(
-    root: TreeNode | null,
-    counts: Map<string, number>,
-    ans: TreeNode[]
+  root: TreeNode | null,
+  counts: Map<string, number>,
+  ans: TreeNode[]
 ): string {
-    if (!root) return '()';
+  if (!root) return "()";
 
-    // Key: (root.val, id(root.left), id(root.right))
-    const key = `(${root.val},${getId(root.left, counts, ans)},${getId(root.right, counts, ans)})`;
+  // Key: (root.val, id(root.left), id(root.right))
+  const key = `(${root.val},${getId(root.left, counts, ans)},${getId(root.right, counts, ans)})`;
 
-    counts.set(key, (counts.get(key) ?? 0) + 1);   // key sets
+  counts.set(key, (counts.get(key) ?? 0) + 1); // key sets
 
-    if (counts.get(key) === 2) {
-        ans.push(root);
-    }
+  if (counts.get(key) === 2) {
+    ans.push(root);
+  }
 
-    return key;
+  return key;
 }

@@ -13,7 +13,7 @@ function singleNumber(nums: number[]): number {
     const curBits: number = nums
       .map((n) => (n >> i) & 1)
       .reduce((acc, val) => acc + val, 0);
-    result |= curBits % 3 << i;
+    result |= (curBits % 3) << i;
   }
 
   return result;

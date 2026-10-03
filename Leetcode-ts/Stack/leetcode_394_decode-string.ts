@@ -17,25 +17,25 @@ Output: "aaabcbc"
     4. Letters: a-z, A-Z
 */
 function decodeString(s: string): string {
-    const stack: string[] = [];
-    let num = 0;
-    let str = '';
-    
-    for (const char of s) {
-        if (char === '[') {
-            stack.push(str);
-            stack.push(String(num));
-            num = 0;
-            str = '';
-        } else if (char === ']') {
-            const num = Number(stack.pop());
-            const prevStr = stack.pop();
-            str = prevStr + str.repeat(num);   // Repeat the string
-        } else if (char >= '0' && char <= '9') {
-            num = num * 10 + Number(char);
-        } else {
-            str += char;
-        }
+  const stack: string[] = [];
+  let num = 0;
+  let str = "";
+
+  for (const char of s) {
+    if (char === "[") {
+      stack.push(str);
+      stack.push(String(num));
+      num = 0;
+      str = "";
+    } else if (char === "]") {
+      const num = Number(stack.pop());
+      const prevStr = stack.pop();
+      str = prevStr + str.repeat(num); // Repeat the string
+    } else if (char >= "0" && char <= "9") {
+      num = num * 10 + Number(char);
+    } else {
+      str += char;
     }
-    return str;
-};
+  }
+  return str;
+}

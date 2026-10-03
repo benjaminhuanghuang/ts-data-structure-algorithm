@@ -1,7 +1,7 @@
 # Linked List Solution Template
 
 - Linked List链表题型解题套路和模板
-<https://www.youtube.com/watch?v=0czlvlqg5xw>
+  <https://www.youtube.com/watch?v=0czlvlqg5xw>
 
 ## Slow-fast pointer
 

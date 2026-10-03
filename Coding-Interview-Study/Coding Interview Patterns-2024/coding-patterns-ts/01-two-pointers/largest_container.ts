@@ -20,7 +20,7 @@ export function largestContainer(heights: number[]): number {
     // pointers inward.
     if (heights[left] < heights[right]) left++;
     else if (heights[left] > heights[right]) right--;
-    else left++, right--;
+    else (left++, right--);
   }
   return maxWater;
 }

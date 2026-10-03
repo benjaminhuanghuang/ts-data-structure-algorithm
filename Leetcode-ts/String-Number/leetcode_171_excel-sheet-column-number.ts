@@ -8,9 +8,9 @@ https://leetcode.com/problems/excel-sheet-column-number/
      Use charCodeAt to get the ASCII value of the character
 */
 function titleToNumber(columnTitle: string): number {
-    let result = 0;
-    for (let i = 0; i < columnTitle.length; i++) {
-        result = result * 26 + columnTitle.charCodeAt(i) - 'A'.charCodeAt(0) + 1;
-    }
-    return result;
-};
+  let result = 0;
+  for (let i = 0; i < columnTitle.length; i++) {
+    result = result * 26 + columnTitle.charCodeAt(i) - "A".charCodeAt(0) + 1;
+  }
+  return result;
+}

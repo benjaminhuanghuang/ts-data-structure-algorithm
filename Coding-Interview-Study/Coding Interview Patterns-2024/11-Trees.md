@@ -5,7 +5,7 @@ function dfs(node: TreeNode | null): void {
   if (node === null) {
     return;
   }
-  
+
   process(node); // Process the current node.
   dfs(node.left); // Traverse the left subtree.
   dfs(node.right); // Traverse the right subtree.
@@ -27,18 +27,18 @@ function bfs(root: TreeNode | null): void {
   if (root === null) {
     return;
   }
-  
+
   const queue: TreeNode[] = [root];
-  
+
   while (queue.length > 0) {
     const node = queue.shift()!;
     process(node); // Process the current node.
-    
+
     if (node.left) {
       // Add the left child to the queue.
       queue.push(node.left);
     }
-    
+
     if (node.right) {
       // Add the right child to the queue.
       queue.push(node.right);

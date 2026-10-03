@@ -26,7 +26,6 @@ const poppedElement2 = stack.pop();
 console.log(poppedElement2); // Output: 2
 console.log(stack); // Output: [1]
 
-
 // Add peek method to Array prototype
 /*
 Array.prototype.peek = function () {

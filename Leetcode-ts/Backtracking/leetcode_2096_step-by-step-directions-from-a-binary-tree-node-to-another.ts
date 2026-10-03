@@ -4,8 +4,7 @@
 https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/
 */
 
-import { TreeNode } from '../Common/TreeNode';
-
+import { TreeNode } from "../Common/TreeNode";
 
 /*
 To case where path(start, end) goes through the root. 
@@ -27,35 +26,44 @@ answer.
     In JavaScript, strings are immutable and are passed by value, not by reference. 
     So, we need to use an object {value: string} to pass the answer string by reference.
 */
-function getPath(cur: TreeNode | null, targetValue: number, path: string[], ans: { value: string }): void {
-    if (!cur) return;
-    if (cur.val === targetValue) ans.value = path.join('');
-    
-    path.push('L');
-    getPath(cur.left, targetValue, path, ans);
-    
-    path[path.length - 1] = 'R';
-    getPath(cur.right, targetValue, path, ans);
-    
-    path.pop(); // backtrack
+function getPath(
+  cur: TreeNode | null,
+  targetValue: number,
+  path: string[],
+  ans: { value: string }
+): void {
+  if (!cur) return;
+  if (cur.val === targetValue) ans.value = path.join("");
+
+  path.push("L");
+  getPath(cur.left, targetValue, path, ans);
+
+  path[path.length - 1] = "R";
+  getPath(cur.right, targetValue, path, ans);
+
+  path.pop(); // backtrack
 }
 
-function getDirections(root: TreeNode | null, startValue: number, destValue: number): string {
-    let tmpPath: string[] = [];
-    let startPath: { value: string } = { value: '' };
-    let destPath: { value: string } = { value: '' };
-    
-    getPath(root, startValue, tmpPath, startPath);
-    getPath(root, destValue, tmpPath, destPath);
+function getDirections(
+  root: TreeNode | null,
+  startValue: number,
+  destValue: number
+): string {
+  let tmpPath: string[] = [];
+  let startPath: { value: string } = { value: "" };
+  let destPath: { value: string } = { value: "" };
 
-    let i = 0;
-    const minLen = Math.min(startPath.value.length, destPath.value.length);
-    while (i < minLen && startPath.value[i] === destPath.value[i]) {
-        i++;
-    }
+  getPath(root, startValue, tmpPath, startPath);
+  getPath(root, destValue, tmpPath, destPath);
 
-    const upMoves = 'U'.repeat(startPath.value.length - i);
-    const downMoves = destPath.value.substring(i);
-    
-    return upMoves + downMoves;
+  let i = 0;
+  const minLen = Math.min(startPath.value.length, destPath.value.length);
+  while (i < minLen && startPath.value[i] === destPath.value[i]) {
+    i++;
+  }
+
+  const upMoves = "U".repeat(startPath.value.length - i);
+  const downMoves = destPath.value.substring(i);
+
+  return upMoves + downMoves;
 }

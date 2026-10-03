@@ -1,20 +1,20 @@
 # 15 Must-Know Patterns for Coding Interviews
 
 1. Prefix Sum
-    - Subarray Sum Equals K
+   - Subarray Sum Equals K
 2. Two Pointers
-    - Two Sum, Input Array is Sorted
+   - Two Sum, Input Array is Sorted
 3. Sliding Window
-    - Longest Substring Without Repeating Characters
+   - Longest Substring Without Repeating Characters
 4. Fast & Slow Pointers
-    - Linked List Cycle
+   - Linked List Cycle
 5. In-Place Reversal
-    - Reverse Linked List
+   - Reverse Linked List
 6. Monotonic Stack
-    - Daily Temperatures
+   - Daily Temperatures
 7. Top K Elements
 8. Overlapping Intervals
-    - Merge Intervals
+   - Merge Intervals
 9. Modified Binary Search
 10. Tree Traversal / InOrder / PreOrder / PostOrder / LevelOrder
 

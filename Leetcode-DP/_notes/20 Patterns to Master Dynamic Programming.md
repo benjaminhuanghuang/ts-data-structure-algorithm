@@ -1,4 +1,3 @@
-
 # 20 Patterns to Master Dynamic Programming
 
 <https://blog.algomaster.io/p/20-patterns-to-master-dynamic-programming>

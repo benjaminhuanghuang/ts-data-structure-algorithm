@@ -14,11 +14,11 @@ https://leetcode.com/problems/find-the-original-array-of-prefix-xor/
     arr[i] = pref[i] ^ pref[i-1] 
 */
 function findArray(pref: number[]): number[] {
-    let answer = [...pref];
+  let answer = [...pref];
 
-    for (let i = 1; i < pref.length; i++) {
-        answer[i] = pref[i - 1] ^ pref[i];
-    }
+  for (let i = 1; i < pref.length; i++) {
+    answer[i] = pref[i - 1] ^ pref[i];
+  }
 
-    return answer;
-};
+  return answer;
+}

@@ -17,19 +17,19 @@ H index H(hight citation) means there are at least h papers with h citations.
 
 */
 function hIndex(citations: number[]): number {
-    // sort the citations in ascending order
-    citations.sort((a, b) => a - b);
+  // sort the citations in ascending order
+  citations.sort((a, b) => a - b);
 
-    const n = citations.length;
-    let h = 1;
+  const n = citations.length;
+  let h = 1;
 
-    for (let i = n - 1; i >= 0; i--) {
-        if (citations[i] >= h) {
-            h++;
-        } else {
-            break;
-        }
+  for (let i = n - 1; i >= 0; i--) {
+    if (citations[i] >= h) {
+      h++;
+    } else {
+      break;
     }
+  }
 
-    return h - 1;
-};
+  return h - 1;
+}

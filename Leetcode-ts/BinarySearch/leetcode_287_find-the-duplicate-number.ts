@@ -7,7 +7,6 @@ Note: no extra space
 
 */
 
-
 /*
 Approach: Binary Search
 
@@ -21,40 +20,41 @@ Find the smallest m such that len(nums <= m) > m, which means m is the duplicate
 */
 
 function findDuplicate(nums: number[]): number {
-    let l = 1;
-    let r = nums.length;
+  let l = 1;
+  let r = nums.length;
 
-    while (l < r) {
-        const m = Math.floor((r - l) / 2) + l;
-        let count = 0; // len(nums <= m)
-        
-        for (const num of nums) {
-            if (num <= m) {
-                ++count;
-            }
-        }
+  while (l < r) {
+    const m = Math.floor((r - l) / 2) + l;
+    let count = 0; // len(nums <= m)
 
-        if (count <= m) {   // find the smallest m such that len(nums <= m) > m
-            l = m + 1;
-        } else {
-            r = m;
-        }
+    for (const num of nums) {
+      if (num <= m) {
+        ++count;
+      }
     }
 
-    return l;
-};
+    if (count <= m) {
+      // find the smallest m such that len(nums <= m) > m
+      l = m + 1;
+    } else {
+      r = m;
+    }
+  }
+
+  return l;
+}
 
 function findDuplicate_faster(nums: number[]): number {
-    let slow = nums[0];
-    let fast = nums[slow];
-    while (slow !== fast) {
-        slow = nums[slow];
-        fast = nums[nums[fast]];
-    }
-    fast = 0;
-    while (slow !== fast) {
-        fast = nums[fast];
-        slow = nums[slow];
-    }
-    return slow;
-};
+  let slow = nums[0];
+  let fast = nums[slow];
+  while (slow !== fast) {
+    slow = nums[slow];
+    fast = nums[nums[fast]];
+  }
+  fast = 0;
+  while (slow !== fast) {
+    fast = nums[fast];
+    slow = nums[slow];
+  }
+  return slow;
+}

@@ -9,15 +9,15 @@ DP is the antidote to this. It's a technique that stores solutions to each subpr
 be reused when they're needed again.
 
 - Optimal substructure: the optimal solution to a problem can be constructed from the optimal
-solutions to its subproblems.
+  solutions to its subproblems.
 
 - Overlapping s1ubproblems: if the same subproblems are solved repeatedly during the problem-solving process.
 
 - Recurrence relation: a formula that expresses the solution to the problem in terms of the
-solutions to its subproblems.
+  solutions to its subproblems.
 
 - Base cases: the simplest instances of the problem where the solution is already known, without
-needing to be decompo.sed into more subproblems.
+  needing to be decompo.sed into more subproblems.
 
 If you spot keywords like 'minimum', 'maximum', 'longest', or 'shortest', in the problem description,
 consider whether a DP approach might be appropriate

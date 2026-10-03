@@ -34,7 +34,6 @@ Space complexity: O(1)
 */
 function jump(nums: number[]): number {
   return 0;
-};
+}
 
-export{}
-
+export {};

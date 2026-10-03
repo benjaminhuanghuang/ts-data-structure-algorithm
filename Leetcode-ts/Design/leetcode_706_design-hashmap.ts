@@ -4,24 +4,21 @@
 https://leetcode.com/problems/design-hashmap/
 */
 
-
 class MyHashMap {
-    DATA_SIZE = 10 ** 6 + 1; // Define the size of the data array
-    data: number[] = new Array(this.DATA_SIZE).fill(-1);
+  DATA_SIZE = 10 ** 6 + 1; // Define the size of the data array
+  data: number[] = new Array(this.DATA_SIZE).fill(-1);
 
-    constructor() {
-        
-    }
+  constructor() {}
 
-    put(key: number, value: number): void {
-       this.data[key] = value;
-    }
+  put(key: number, value: number): void {
+    this.data[key] = value;
+  }
 
-    get(key: number): number {
-        return this.data[key];
-    }
+  get(key: number): number {
+    return this.data[key];
+  }
 
-    remove(key: number): void {
-        this.data[key] = -1;
-    }
+  remove(key: number): void {
+    this.data[key] = -1;
+  }
 }

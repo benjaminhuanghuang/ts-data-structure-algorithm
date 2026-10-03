@@ -13,16 +13,16 @@ Otherwise, we count the number of 1s the binary representation of n ^ k.
 They are the bits are 1 in n and 0 in k
 */
 function minChanges(n: number, k: number): number {
-    return (n & k) !== k ? -1 : bitCount(n ^ k);
-};
+  return (n & k) !== k ? -1 : bitCount(n ^ k);
+}
 
 function bitCount(n: number): number {
-    let count = 0;
+  let count = 0;
 
-    while (n !== 0) {
-        count += n & 1; // Add the least significant bit
-        n >>>= 1; // Logical right shift (fills with zeros)
-    }
+  while (n !== 0) {
+    count += n & 1; // Add the least significant bit
+    n >>>= 1; // Logical right shift (fills with zeros)
+  }
 
-    return count;
+  return count;
 }

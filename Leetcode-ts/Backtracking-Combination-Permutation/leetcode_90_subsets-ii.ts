@@ -31,7 +31,7 @@ function backtrack(
   n: number,
   startPos: number,
   cur: number[],
-  ans: number[][],
+  ans: number[][]
 ): void {
   if (n == cur.length) {
     ans.push([...cur]); // push a copy of cur to ans!

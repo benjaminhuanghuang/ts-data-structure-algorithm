@@ -33,7 +33,7 @@ function permute_dfs(
   nums: number[],
   cur: number[],
   ans: number[][],
-  used: boolean[],
+  used: boolean[]
 ): void {
   const n = nums.length;
   if (cur.length === n) {

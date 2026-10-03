@@ -19,12 +19,12 @@ https://leetcode.com/problems/bitwise-and-of-numbers-range/
     平移m和n，每次向右移一位，直到m和n相等，记录下所有平移的次数i，然后再把m左移i位即为最终结果
 */
 function rangeBitwiseAnd(left: number, right: number): number {
-    let shift = 0;
-    while (left < right) {
-        left >>= 1;
-        right >>= 1;
-        shift++;
-    }
+  let shift = 0;
+  while (left < right) {
+    left >>= 1;
+    right >>= 1;
+    shift++;
+  }
 
-    return right << shift;
-};
+  return right << shift;
+}

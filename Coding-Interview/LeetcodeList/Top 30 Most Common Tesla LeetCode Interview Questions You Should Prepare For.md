@@ -17,7 +17,7 @@
 15. Remove Nth Node From End of List [LeetCode 19 - Remove Nth Node From End of List]✅
 16. Alien Dictionary [LeetCode 269 - Alien Dictionary] ❓
 17. Clumsy Factorial [LeetCode 1006 - Clumsy Factorial] ❓
-18. Kth Largest Element in an Array [LeetCode 215 - Kth Largest Element in an Array]  ✅
+18. Kth Largest Element in an Array [LeetCode 215 - Kth Largest Element in an Array] ✅
 19. Implement Trie (Prefix Tree) [LeetCode 208 - Implement Trie (Prefix Tree)] 💡
 20. 3Sum [LeetCode 15 - 3Sum]💡
 21. Subsets [LeetCode 78 - Subsets] 💡

@@ -4,7 +4,6 @@
 https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-i/
 */
 
-
 /*
 https://algo.monster/liteproblems/2970
 
@@ -26,27 +25,27 @@ j is 递增后缀的第一个元素, 在1到n-1之间枚举j， 每次移动i使
 
 */
 function incremovableSubarrayCount(nums: number[]): number {
-    const n = nums.length;
-    let i = 0;
-    // Find the length of the initial strictly increasing sequence.
-    while (i + 1 < n && nums[i] < nums[i + 1]) {
-        i++;
+  const n = nums.length;
+  let i = 0;
+  // Find the length of the initial strictly increasing sequence.
+  while (i + 1 < n && nums[i] < nums[i + 1]) {
+    i++;
+  }
+  // If the entire array is increasing,
+  // return the sum of all lengths of subarrays possible.
+  if (i === n - 1) {
+    return (n * (n + 1)) / 2;
+  }
+  // Initialize answer with the case where we remove the first element.
+  let ans = i + 2;
+  for (let j = n - 1; j; --j) {
+    while (i >= 0 && nums[i] >= nums[j]) {
+      --i;
     }
-    // If the entire array is increasing, 
-    // return the sum of all lengths of subarrays possible.
-    if (i === n - 1) {
-        return (n * (n + 1)) / 2;
+    ans += i + 2;
+    if (nums[j - 1] >= nums[j]) {
+      break;
     }
-    // Initialize answer with the case where we remove the first element.
-    let ans = i + 2;
-    for (let j = n - 1; j; --j) {
-        while (i >= 0 && nums[i] >= nums[j]) {
-            --i;
-        }
-        ans += i + 2;
-        if (nums[j - 1] >= nums[j]) {
-            break;
-        }
-    }
-    return ans;
-};
+  }
+  return ans;
+}

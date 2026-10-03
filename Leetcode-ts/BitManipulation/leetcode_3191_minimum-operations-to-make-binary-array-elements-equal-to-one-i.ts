@@ -12,17 +12,17 @@ https://leetcode.com/problems/minimum-operations-to-make-binary-array-elements-e
     因此，我们可以顺序遍历数组，每次遇到0，就将其后两个元素进行反转操作
 */
 function minOperations(nums: number[]): number {
-    const n = nums.length;
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        if (nums[i] === 0) {
-            if (i + 2 >= n) {
-                return -1;
-            }
-            nums[i + 1] ^= 1;
-            nums[i + 2] ^= 1;
-            ++ans;
-        }
+  const n = nums.length;
+  let ans = 0;
+  for (let i = 0; i < n; ++i) {
+    if (nums[i] === 0) {
+      if (i + 2 >= n) {
+        return -1;
+      }
+      nums[i + 1] ^= 1;
+      nums[i + 2] ^= 1;
+      ++ans;
     }
-    return ans;  
-};
+  }
+  return ans;
+}

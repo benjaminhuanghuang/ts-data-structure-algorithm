@@ -24,7 +24,7 @@
 function shortestPath(
   edges: [number, number, number][],
   n: number,
-  src: number,
+  src: number
 ): Map<number, number> {
   const adj: Map<number, [number, number][]> = new Map();
   for (let i = 1; i <= n; i++) {

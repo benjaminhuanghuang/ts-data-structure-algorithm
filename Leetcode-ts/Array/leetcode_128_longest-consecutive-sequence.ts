@@ -23,19 +23,20 @@ Space complexity: O(N)
 */
 
 function longestConsecutive(nums: number[]): number {
-    const numSet: Set<number> = new Set(nums);
-    let ans = 0;
+  const numSet: Set<number> = new Set(nums);
+  let ans = 0;
 
-    for (const num of nums) {
-        if (!numSet.has(num - 1)) { // num is a lower bound of a sequence
-            let length = 0;
-            while (numSet.has(num + length)) {
-                length++;
-            }
-            ans = Math.max(ans, length);
-        }
-        // if numSet.has(num - 1), (num-1) will be visited later
+  for (const num of nums) {
+    if (!numSet.has(num - 1)) {
+      // num is a lower bound of a sequence
+      let length = 0;
+      while (numSet.has(num + length)) {
+        length++;
+      }
+      ans = Math.max(ans, length);
     }
+    // if numSet.has(num - 1), (num-1) will be visited later
+  }
 
-    return ans;
-};
+  return ans;
+}

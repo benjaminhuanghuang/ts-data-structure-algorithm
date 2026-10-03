@@ -9,7 +9,7 @@ Kruskal's (Minimum Spanning Tree)
 
 function minimumSpanningTree(
   edges: [number, number, number][],
-  n: number,
+  n: number
 ): [number, number][] {
   // Min heap sorted by weight
   const minHeap = new MinHeap();

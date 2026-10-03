@@ -16,7 +16,7 @@ function dfsHelper(
   i: number,
   profit: number[],
   weight: number[],
-  capacity: number,
+  capacity: number
 ): number {
   if (i === profit.length) {
     return 0;
@@ -43,13 +43,13 @@ function dfsHelper(
 function memoization(
   profit: number[],
   weight: number[],
-  capacity: number,
+  capacity: number
 ): number {
   const N = profit.length,
     M = capacity;
   // A 2D array, with N rows and M+1 columns
   const cache: number[][] = Array.from({ length: N }, () =>
-    new Array(M + 1).fill(-1),
+    new Array(M + 1).fill(-1)
   );
   return memoHelper(0, profit, weight, capacity, cache);
 }
@@ -59,7 +59,7 @@ function memoHelper(
   profit: number[],
   weight: number[],
   capacity: number,
-  cache: number[][],
+  cache: number[][]
 ): number {
   if (i === profit.length) {
     return 0;
@@ -89,7 +89,7 @@ function dp(profit: number[], weight: number[], capacity: number): number {
   const N = profit.length,
     M = capacity;
   const dp: number[][] = Array.from({ length: N }, () =>
-    new Array(M + 1).fill(0),
+    new Array(M + 1).fill(0)
   );
 
   // Fill the first column and row to reduce edge cases

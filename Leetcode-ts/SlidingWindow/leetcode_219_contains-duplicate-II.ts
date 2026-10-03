@@ -9,21 +9,20 @@ https://leetcode.com/problems/contains-duplicate-ii/
     Time Complexity: O(N * K)
 */
 
-
 /*
     Approach: Hash Map
     Time Complexity: O(N)
     Space Complexity: O(N)
 */
 function containsNearbyDuplicate(nums: number[], k: number): boolean {
-    const map = new Map<number, number>();
-    for (let i = 0; i < nums.length; i++) {
-        if (map.has(nums[i]) && i - map.get(nums[i])! <= k) {
-            return true;
-        }
-        map.set(nums[i], i);
+  const map = new Map<number, number>();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.has(nums[i]) && i - map.get(nums[i])! <= k) {
+      return true;
     }
-    return false;
+    map.set(nums[i], i);
+  }
+  return false;
 }
 
 /*
@@ -37,16 +36,16 @@ function containsNearbyDuplicate(nums: number[], k: number): boolean {
 */
 
 function containsNearbyDuplicate2(nums: number[], k: number): boolean {
-    const set = new Set<number>();
-    
-    for (let i = 0; i < nums.length; i++) {
-        if (set.has(nums[i])) {
-            return true;
-        }
-        set.add(nums[i]);
-        if (set.size > k) {
-            set.delete(nums[i - k]);
-        }
+  const set = new Set<number>();
+
+  for (let i = 0; i < nums.length; i++) {
+    if (set.has(nums[i])) {
+      return true;
     }
-    return false;
+    set.add(nums[i]);
+    if (set.size > k) {
+      set.delete(nums[i - k]);
+    }
+  }
+  return false;
 }

@@ -4,7 +4,6 @@
 https://leetcode.com/problems/distribute-coins-in-binary-tree/
 */
 
-
 import { TreeNode } from "../Common/TreeNode";
 /*
 https://zxi.mytechroad.com/blog/tree/leetcode-979-distribute-coins-in-binary-tree/ 
@@ -19,16 +18,16 @@ Space complexity: O(n)
 */
 
 function distributeCoins(root: TreeNode | null): number {
-    let ans = 0;
+  let ans = 0;
 
-    function balance(root: TreeNode | null): number {
-        if (!root) return 0;
-        const l = balance(root.left);
-        const r = balance(root.right);
-        ans += Math.abs(l) + Math.abs(r);
-        return l + r + root.val - 1;
-    }
+  function balance(root: TreeNode | null): number {
+    if (!root) return 0;
+    const l = balance(root.left);
+    const r = balance(root.right);
+    ans += Math.abs(l) + Math.abs(r);
+    return l + r + root.val - 1;
+  }
 
-    balance(root);
-    return ans;
-};
+  balance(root);
+  return ans;
+}

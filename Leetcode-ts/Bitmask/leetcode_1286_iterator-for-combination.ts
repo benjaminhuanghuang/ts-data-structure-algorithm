@@ -23,68 +23,68 @@ Space complexity: O(1)
 */
 
 class CombinationIterator {
-    private mask: number;
-    private readonly length: number;
-    private readonly chars: string[];
-    
-    constructor(characters: string, combinationLength: number) {
-        this.chars = characters.split('').reverse();
-        this.length = combinationLength;
-        this.mask = (1 << characters.length) - 1;
-    }
+  private mask: number;
+  private readonly length: number;
+  private readonly chars: string[];
 
-    next(): string {
-        this.hasNext();
-        let ans = '';
-        for (let i = this.chars.length - 1; i >= 0; --i) {
-            if ((this.mask >> i) & 1) {
-                ans += this.chars[i];
-            }
-        }
-        this.mask--;
-        return ans;
-    }
+  constructor(characters: string, combinationLength: number) {
+    this.chars = characters.split("").reverse();
+    this.length = combinationLength;
+    this.mask = (1 << characters.length) - 1;
+  }
 
-    hasNext(): boolean {
-        while (this.mask >= 0 && this.popcount(this.mask) !== this.length) {
-            this.mask--;
-        }
-        return this.mask > 0;
+  next(): string {
+    this.hasNext();
+    let ans = "";
+    for (let i = this.chars.length - 1; i >= 0; --i) {
+      if ((this.mask >> i) & 1) {
+        ans += this.chars[i];
+      }
     }
+    this.mask--;
+    return ans;
+  }
 
-    private popcount(x: number): number {
-        return x.toString(2).split('0').join('').length;
+  hasNext(): boolean {
+    while (this.mask >= 0 && this.popcount(this.mask) !== this.length) {
+      this.mask--;
     }
+    return this.mask > 0;
+  }
+
+  private popcount(x: number): number {
+    return x.toString(2).split("0").join("").length;
+  }
 }
 
 class CombinationIterator2 {
-    result: string[];
-    counter: number;
+  result: string[];
+  counter: number;
 
-    constructor(characters: string, combinationLength: number) {
-        this.result = [];
-        this.counter = 0;
+  constructor(characters: string, combinationLength: number) {
+    this.result = [];
+    this.counter = 0;
 
-        const helper = (cur: string, characters: string) => {
-            if (cur.length >= combinationLength) {
-                this.result.push(cur);
-                return;
-            }
+    const helper = (cur: string, characters: string) => {
+      if (cur.length >= combinationLength) {
+        this.result.push(cur);
+        return;
+      }
 
-            for (let i = 0; i < characters.length; i++) {
-                helper(cur + characters[i], characters.slice(i + 1));
-            }
-        }
+      for (let i = 0; i < characters.length; i++) {
+        helper(cur + characters[i], characters.slice(i + 1));
+      }
+    };
 
-        helper("", characters)
-    }
+    helper("", characters);
+  }
 
-    next(): string {
-        this.counter++;
-        return this.result[this.counter - 1];
-    }
+  next(): string {
+    this.counter++;
+    return this.result[this.counter - 1];
+  }
 
-    hasNext(): boolean {
-        return !!this.result?.[this.counter];
-    }
+  hasNext(): boolean {
+    return !!this.result?.[this.counter];
+  }
 }

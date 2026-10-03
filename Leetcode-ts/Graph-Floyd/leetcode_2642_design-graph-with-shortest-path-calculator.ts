@@ -38,7 +38,7 @@ class Graph {
         for (let j = 0; j < n; j++) {
           this.dp[i][j] = Math.min(
             this.dp[i][j],
-            this.dp[i][k] + this.dp[k][j],
+            this.dp[i][k] + this.dp[k][j]
           );
         }
       }
@@ -51,7 +51,7 @@ class Graph {
       for (let j = 0; j < this.n; j++) {
         this.dp[i][j] = Math.min(
           this.dp[i][j],
-          this.dp[i][a] + weight + this.dp[b][j],
+          this.dp[i][a] + weight + this.dp[b][j]
         );
       }
     }

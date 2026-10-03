@@ -28,7 +28,7 @@ function dfs(
   src: number,
   adj: Map<number, number[]>,
   visit: Set<number>,
-  topSort: number[],
+  topSort: number[]
 ): void {
   if (visit.has(src)) {
     return;

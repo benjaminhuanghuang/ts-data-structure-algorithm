@@ -14,20 +14,20 @@ Time complexity: O(n)
  Therefore, each element is processed at most twice, once when it is added to s and once when it is subtracted, leading to a linear time complexity.
 */
 function minSubArrayLen(target: number, nums: number[]): number {
-    let left = 0;
-    let sum = 0;
-    // A large value used to initially represent an impossibly large subarray length. 
-    // This value will later be used to determine if a valid subarray was found.
-    let result = Number.MAX_SAFE_INTEGER;
+  let left = 0;
+  let sum = 0;
+  // A large value used to initially represent an impossibly large subarray length.
+  // This value will later be used to determine if a valid subarray was found.
+  let result = Number.MAX_SAFE_INTEGER;
 
-    for (let right = 0; right < nums.length; right++) {
-        sum += nums[right];
-        while (sum >= target) {
-            result = Math.min(result, right - left + 1);
-            sum -= nums[left];
-            left++;
-        }
+  for (let right = 0; right < nums.length; right++) {
+    sum += nums[right];
+    while (sum >= target) {
+      result = Math.min(result, right - left + 1);
+      sum -= nums[left];
+      left++;
     }
+  }
 
-    return result === Number.MAX_SAFE_INTEGER ? 0 : result;
+  return result === Number.MAX_SAFE_INTEGER ? 0 : result;
 }

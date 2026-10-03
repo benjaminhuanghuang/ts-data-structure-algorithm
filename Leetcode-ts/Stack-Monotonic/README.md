@@ -37,30 +37,29 @@ function nextGreaterElement(nums: number[]): number[] {
 ```
 
 ```ts
-for(let i =0;i < nums.length; i++) {
-    // step 1, descending stack, push num when idt is < stack top
-    while(!stack.isEmpty && nums[i] >= stack.peek()) {
-        stack.pop();
-    }
-    // step 2
-    res.push( stack.isEmpty ? -1 : stack.peek());
+for (let i = 0; i < nums.length; i++) {
+  // step 1, descending stack, push num when idt is < stack top
+  while (!stack.isEmpty && nums[i] >= stack.peek()) {
+    stack.pop();
+  }
+  // step 2
+  res.push(stack.isEmpty ? -1 : stack.peek());
 
-    // step 3
-    stack.push(nums[i]);
+  // step 3
+  stack.push(nums[i]);
 }
 
-
 function monoStack(insertEntries) {
-    const stack = [];
-    
-    for (let entry of insertEntries) {
-        // Compare current element with the stop top
-        while (stack.length > 0 && stack[stack.length - 1] <= entry) {
-            stack.pop();
-            // Do something with the popped item here
-        }
-        stack.push(entry);
+  const stack = [];
+
+  for (let entry of insertEntries) {
+    // Compare current element with the stop top
+    while (stack.length > 0 && stack[stack.length - 1] <= entry) {
+      stack.pop();
+      // Do something with the popped item here
     }
+    stack.push(entry);
+  }
 }
 ```
 

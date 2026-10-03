@@ -37,7 +37,7 @@ function dfs(state: State): void {
     processSolution(state);
     return;
   }
-  
+
   // Explore each possible decision that can be made at the current
   // state.
   for (const decision of possibleDecisions(state)) {
@@ -68,6 +68,6 @@ void backtracking(参数) {
 
 79. Word Search
 
-489. Robot Room Cleaner
+80. Robot Room Cleaner
 
-1079. Letter Tile Possibilities
+81. Letter Tile Possibilities

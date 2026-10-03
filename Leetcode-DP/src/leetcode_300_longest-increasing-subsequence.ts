@@ -16,21 +16,21 @@ O(n^2) solution -> O(nlogn) solution
     Space complexity: O(n)
 */
 function lengthOfLIS(nums: number[]): number {
-    if (nums.length === 0) return 0;
+  if (nums.length === 0) return 0;
 
-    const n = nums.length;
-    const dp: number[] = new Array(n).fill(1);
+  const n = nums.length;
+  const dp: number[] = new Array(n).fill(1);
 
-    for (let i = 1; i < n; ++i) {
-        for (let j = 0; j < i; ++j) {
-            if (nums[i] > nums[j]) {
-                dp[i] = Math.max(dp[i], dp[j] + 1);
-            }
-        }
+  for (let i = 1; i < n; ++i) {
+    for (let j = 0; j < i; ++j) {
+      if (nums[i] > nums[j]) {
+        dp[i] = Math.max(dp[i], dp[j] + 1);
+      }
     }
+  }
 
-    return Math.max(...dp);
-};
+  return Math.max(...dp);
+}
 
 /*
 Solution 2: DP + Binary Search / Patience Sort
@@ -45,30 +45,31 @@ Time complexity: O(nlogn)
 Space complexity: O(n)
 */
 function lengthOfLIS_2(nums: number[]): number {
-    const n = nums.length;
-    if (n === 0) return 0;
+  const n = nums.length;
+  if (n === 0) return 0;
 
-    const dp: number[] = [];
+  const dp: number[] = [];
 
-    for (let i = 0; i < n; ++i) {
-        const num = nums[i];
-        let left = 0, right = dp.length;
+  for (let i = 0; i < n; ++i) {
+    const num = nums[i];
+    let left = 0,
+      right = dp.length;
 
-        while (left < right) {
-            const mid = Math.floor((left + right) / 2);
-            if (dp[mid] < num) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
-
-        if (left === dp.length) {
-            dp.push(num);
-        } else {
-            dp[left] = num;
-        }
+    while (left < right) {
+      const mid = Math.floor((left + right) / 2);
+      if (dp[mid] < num) {
+        left = mid + 1;
+      } else {
+        right = mid;
+      }
     }
 
-    return dp.length;
+    if (left === dp.length) {
+      dp.push(num);
+    } else {
+      dp[left] = num;
+    }
+  }
+
+  return dp.length;
 }

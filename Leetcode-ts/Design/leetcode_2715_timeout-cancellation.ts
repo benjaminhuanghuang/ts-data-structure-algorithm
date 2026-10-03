@@ -3,12 +3,7 @@
 https://leetcode.com/problems/timeout-cancellation/
 */
 type JSONValue =
-  | null
-  | boolean
-  | number
-  | string
-  | JSONValue[]
-  | { [key: string]: JSONValue };
+  null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
 
 type Fn = (...args: JSONValue[]) => void;
 

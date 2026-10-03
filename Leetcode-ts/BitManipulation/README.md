@@ -17,7 +17,7 @@ x ^ (x-1) = 1100 ^ 1011 = 0111
 ## Removes the lowest set bit (rightmost 1) in i
 
 ```js
-i & (i - 1) 
+i & (i - 1)
 
 
 i = 12  -> 1100
@@ -65,9 +65,9 @@ nums[i] ^= 1;
 
 ```ts
 for (let i = 0; i < arrayLength; ++i) {
-    // XOR the current index with the current array element and the current result.
-    // This will cancel out all numbers from 0 to n except the missing one.
-    result ^= i ^ nums[i];
+  // XOR the current index with the current array element and the current result.
+  // This will cancel out all numbers from 0 to n except the missing one.
+  result ^= i ^ nums[i];
 }
 ```
 

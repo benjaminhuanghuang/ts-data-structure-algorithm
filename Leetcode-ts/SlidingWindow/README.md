@@ -56,6 +56,6 @@ function slidingWindowFlexibleShortest(input) {
 
 209. Minimum Size Subarray Sum
 
-219. Contains Duplicate II
+210. Contains Duplicate II
 
-2461. Maximum Sum of Distinct Subarrays With Length K
+211. Maximum Sum of Distinct Subarrays With Length K

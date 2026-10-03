@@ -14,19 +14,19 @@ Time complexity: O(N*E)
 Space complexity: O(N)
 */
 function networkDelayTime(times: number[][], n: number, k: number): number {
-    const MAX_TIME = 101 * 100;   // Max value is N * 100
-    const dist: number[] = new Array(n).fill(MAX_TIME);
-    dist[k - 1] = 0;   // K to K the time is 0
+  const MAX_TIME = 101 * 100; // Max value is N * 100
+  const dist: number[] = new Array(n).fill(MAX_TIME);
+  dist[k - 1] = 0; // K to K the time is 0
 
-    for (let i = 1; i < n; ++i) {
-        for (const time of times) {
-            const u = time[0] - 1;
-            const v = time[1] - 1;
-            const w = time[2];
-            dist[v] = Math.min(dist[v], dist[u] + w);
-        }
+  for (let i = 1; i < n; ++i) {
+    for (const time of times) {
+      const u = time[0] - 1;
+      const v = time[1] - 1;
+      const w = time[2];
+      dist[v] = Math.min(dist[v], dist[u] + w);
     }
+  }
 
-    const maxDist = Math.max(...dist);
-    return maxDist === MAX_TIME ? -1 : maxDist;
-};
+  const maxDist = Math.max(...dist);
+  return maxDist === MAX_TIME ? -1 : maxDist;
+}

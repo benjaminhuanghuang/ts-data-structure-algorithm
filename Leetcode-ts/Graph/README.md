@@ -5,7 +5,11 @@
 1. Edge list, simplest and common
 
 ```js
-G = [[0, 1], [1, 2], [3,2]]
+G = [
+  [0, 1],
+  [1, 2],
+  [3, 2],
+];
 ```
 
 2. Adjacency Matrix

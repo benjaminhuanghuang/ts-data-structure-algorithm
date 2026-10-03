@@ -4,7 +4,6 @@
 https://leetcode.com/problems/perfect-squares/
 */
 
-
 /*
   Solution: 
 
@@ -27,15 +26,16 @@ https://leetcode.com/problems/perfect-squares/
 */
 
 function numSquares(n: number): number {
-    // the worst case, n 可以由 1 + 1 + 1... 组成
-    const dp = new Array(n + 1).fill(n); // Initialize the array with the worst-case value
-    dp[0] = 0;
+  // the worst case, n 可以由 1 + 1 + 1... 组成
+  const dp = new Array(n + 1).fill(n); // Initialize the array with the worst-case value
+  dp[0] = 0;
 
-    for (let i = 1; i <= n; ++i) {
-        for (let j = 1; j * j <= i; ++j) { // j is the perfect square before i
-            dp[i] = Math.min(dp[i], dp[i - j * j] + 1); // +1 because i is split into i-j*j and j*j, where j*j is a perfect square
-        }
+  for (let i = 1; i <= n; ++i) {
+    for (let j = 1; j * j <= i; ++j) {
+      // j is the perfect square before i
+      dp[i] = Math.min(dp[i], dp[i - j * j] + 1); // +1 because i is split into i-j*j and j*j, where j*j is a perfect square
     }
+  }
 
-    return dp[n];
-};
+  return dp[n];
+}

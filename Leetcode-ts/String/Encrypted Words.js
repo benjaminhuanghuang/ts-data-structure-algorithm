@@ -9,48 +9,42 @@ If we encrypt "abcxcba" we'll get "xbacbca". That is, we take "x" and then appen
 [Meta]
 */
 function findEncryptedWord(s) {
-    // Write your code here
-    const n = s.length;
-    if (n === 0) return '';
-    const middle = Math.floor((n - 1) / 2);
-    return s[middle] + findEncryptedWord(s.slice(0, middle)) + findEncryptedWord(s.slice(middle + 1));
+  // Write your code here
+  const n = s.length;
+  if (n === 0) return "";
+  const middle = Math.floor((n - 1) / 2);
+  return (
+    s[middle] +
+    findEncryptedWord(s.slice(0, middle)) +
+    findEncryptedWord(s.slice(middle + 1))
+  );
 }
-
-
-
-
-
-
-
-
-
 
 // These are the tests we use to determine if the solution is correct.
 // You can add your own at the bottom.
 function printString(str) {
-    var out = '["' + str + '"]';
-    return out;
+  var out = '["' + str + '"]';
+  return out;
 }
 
 var test_case_number = 1;
 
 function check(expected, output) {
-    var result = (expected == output);
-    var rightTick = "\u2713";
-    var wrongTick = "\u2717";
-    if (result) {
-        var out = rightTick + ' Test #' + test_case_number;
-        console.log(out);
-    }
-    else {
-        var out = '';
-        out += wrongTick + ' Test #' + test_case_number + ': Expected ';
-        out += printString(expected);
-        out += ' Your output: ';
-        out += printString(output);
-        console.log(out);
-    }
-    test_case_number++;
+  var result = expected == output;
+  var rightTick = "\u2713";
+  var wrongTick = "\u2717";
+  if (result) {
+    var out = rightTick + " Test #" + test_case_number;
+    console.log(out);
+  } else {
+    var out = "";
+    out += wrongTick + " Test #" + test_case_number + ": Expected ";
+    out += printString(expected);
+    out += " Your output: ";
+    out += printString(output);
+    console.log(out);
+  }
+  test_case_number++;
 }
 
 var s_1 = "abc";

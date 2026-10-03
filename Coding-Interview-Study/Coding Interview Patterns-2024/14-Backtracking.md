@@ -9,7 +9,7 @@ function dfs(state: State): void {
     processSolution(state);
     return;
   }
-  
+
   // Explore each possible decision that can be made at the current
   // state.
   for (const decision of possibleDecisions(state)) {

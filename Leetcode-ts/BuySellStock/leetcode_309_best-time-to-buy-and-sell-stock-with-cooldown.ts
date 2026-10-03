@@ -23,16 +23,16 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 */
 
 function maxProfit(prices: number[]): number {
-    let sold = 0;
-    let rest = 0;
-    let hold = Number.MIN_SAFE_INTEGER;
+  let sold = 0;
+  let rest = 0;
+  let hold = Number.MIN_SAFE_INTEGER;
 
-    for (const price of prices) {
-        const prevSold = sold;
-        sold = hold + price;
-        hold = Math.max(hold, rest - price);
-        rest = Math.max(rest, prevSold);
-    }
+  for (const price of prices) {
+    const prevSold = sold;
+    sold = hold + price;
+    hold = Math.max(hold, rest - price);
+    rest = Math.max(rest, prevSold);
+  }
 
-    return Math.max(rest, sold);
-};
+  return Math.max(rest, sold);
+}

@@ -9,16 +9,16 @@ https://leetcode.com/problems/majority-element/
     This way, if an element has a majority, it will remain after all the cancellations.
 */
 function majorityElement(nums: number[]): number {
-    let count = 0;
-    let candidate = 0;
+  let count = 0;
+  let candidate = 0;
 
-    for (let num of nums) {
-        if (count === 0) {
-            candidate = num;
-        }
-
-        count += (num === candidate) ? 1 : -1;
+  for (let num of nums) {
+    if (count === 0) {
+      candidate = num;
     }
 
-    return candidate;
-};
+    count += num === candidate ? 1 : -1;
+  }
+
+  return candidate;
+}

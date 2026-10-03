@@ -1,4 +1,3 @@
-
 # Combination vs Permutation
 
 - Permutation， 顺序不同算不同解， used[i] = true 表示 第 i 个元素已经在当前路径中使用过
@@ -61,12 +60,12 @@ func dfs(n, curr):
 
     for i = 0 to nums.size(): # from index 0
         if used[i]: continue
-        
+
         used[i] = true    #
         cur.append(nums[i])
-        
+
         dfs(n, curr)
-        
+
         cur.pop()
         used[i] = false
 ```

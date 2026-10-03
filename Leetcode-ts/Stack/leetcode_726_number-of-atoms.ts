@@ -6,7 +6,6 @@ https://leetcode.com/problems/number-of-atoms/
 [Google]
 */
 
-
 function countOfAtoms(formula: string): string {
   let i = 0;
   const len = formula.length;
@@ -16,10 +15,10 @@ function countOfAtoms(formula: string): string {
   stack.push(new Map<string, number>());
 
   while (i < len) {
-    if (formula[i] === '(') {
+    if (formula[i] === "(") {
       stack.push(new Map<string, number>());
       i++;
-    } else if (formula[i] === ')') {
+    } else if (formula[i] === ")") {
       const top = stack.pop()!;
       let start = ++i;
       let num = 1;
@@ -32,7 +31,8 @@ function countOfAtoms(formula: string): string {
     } else {
       // start with upper case character
       let start = i++;
-      while (i < len && isLowerCase(formula[i])) {  // append lower case character to the name
+      while (i < len && isLowerCase(formula[i])) {
+        // append lower case character to the name
         i++;
       }
       const name = formula.substring(start, i);
@@ -46,7 +46,9 @@ function countOfAtoms(formula: string): string {
 
   const map = stack.pop()!;
   const sortedKeys = Array.from(map.keys()).sort();
-  const result = sortedKeys.map(key => `${key}${map.get(key)! > 1 ? map.get(key) : ''}`).join('');
+  const result = sortedKeys
+    .map((key) => `${key}${map.get(key)! > 1 ? map.get(key) : ""}`)
+    .join("");
 
   return result;
 }
@@ -68,4 +70,3 @@ https://zxi.mytechroad.com/blog/string/leetcode-726-number-of-atoms/
 */
 
 export { countOfAtoms };
-

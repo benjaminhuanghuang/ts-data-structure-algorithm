@@ -1,4 +1,3 @@
-
 ## 将动态规划的常见类型分为如下几种
 
 矩阵型
@@ -15,27 +14,27 @@
 <https://docs.google.com/spreadsheets/d/1pEzcVLdj7T4fv5mrNhsOvffBnsUH07GZk7c2jD-adE0/edit?gid=0#gid=0>
 
 1. Fibonacci Numbers
-Climbing Stairs
-House Robber
-Fibonacci Number
-Maximum Alternating Subsequence Sum
+   Climbing Stairs
+   House Robber
+   Fibonacci Number
+   Maximum Alternating Subsequence Sum
 
 2. Zero / One Knapsack
-Partition Equal Subset Sum
-Target Sum
+   Partition Equal Subset Sum
+   Target Sum
 
 3. Unbounded Knapsack
-Coin Change
-Coin Change II
-Minimum Cost for Tickets
+   Coin Change
+   Coin Change II
+   Minimum Cost for Tickets
 
 4. Longest Common Subsequence
-Longest Common Subsequence
-Longest Increasing Subsequence
-Edit Distance
-Distinct Subsequences
+   Longest Common Subsequence
+   Longest Increasing Subsequence
+   Edit Distance
+   Distinct Subsequences
 
 5. Palindromes
-Longest Palindromic Substring
-Palindromic Substrings
-Longest Palindromic Subsequence
+   Longest Palindromic Substring
+   Palindromic Substrings
+   Longest Palindromic Subsequence

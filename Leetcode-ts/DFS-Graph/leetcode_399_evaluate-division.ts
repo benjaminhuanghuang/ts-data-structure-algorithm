@@ -21,47 +21,51 @@ Space complexity: O(E)
 // g[A][B] = k means A / B = k
 type Graph = { [key: string]: { [key: string]: number } };
 
-function calcEquation( equations: [string, string][], values: number[], queries: [string, string][]): number[] {
-    const g: Graph = {};
+function calcEquation(
+  equations: [string, string][],
+  values: number[],
+  queries: [string, string][]
+): number[] {
+  const g: Graph = {};
 
-    // Build the graph
-    for (let i = 0; i < equations.length; ++i) {
-        const [A, B] = equations[i];
-        const k = values[i];
-        if (!g[A]) g[A] = {};
-        if (!g[B]) g[B] = {};
-        g[A][B] = k;
-        g[B][A] = 1.0 / k;
-    }
+  // Build the graph
+  for (let i = 0; i < equations.length; ++i) {
+    const [A, B] = equations[i];
+    const k = values[i];
+    if (!g[A]) g[A] = {};
+    if (!g[B]) g[B] = {};
+    g[A][B] = k;
+    g[B][A] = 1.0 / k;
+  }
 
-    // Process each query
-    const ans: number[] = [];
-    for (const [X, Y] of queries) {
-        if (!g[X] || !g[Y]) {
-            ans.push(-1.0);
-            continue;
-        }
-        const visited: Set<string> = new Set();
-        ans.push(divide(X, Y, g, visited));
+  // Process each query
+  const ans: number[] = [];
+  for (const [X, Y] of queries) {
+    if (!g[X] || !g[Y]) {
+      ans.push(-1.0);
+      continue;
     }
-    return ans;
+    const visited: Set<string> = new Set();
+    ans.push(divide(X, Y, g, visited));
+  }
+  return ans;
 }
 
 // DFS to find the path from A to B, get result of A / B
 function divide(A: string, B: string, g: Graph, visited: Set<string>): number {
-    if (A === B) return 1.0;
-    visited.add(A);
+  if (A === B) return 1.0;
+  visited.add(A);
 
-    for (const C in g[A]) {
-        if (visited.has(C)) continue;
-        const d = divide(C, B, g, visited); // d = C / B
-        // A / B = C / B * A / C 
-        // The path A - C - B exist 
-        // from A to B is the path from A to C + the path from C to B
-        if (d > 0) return d * g[A][C];
-    }
+  for (const C in g[A]) {
+    if (visited.has(C)) continue;
+    const d = divide(C, B, g, visited); // d = C / B
+    // A / B = C / B * A / C
+    // The path A - C - B exist
+    // from A to B is the path from A to C + the path from C to B
+    if (d > 0) return d * g[A][C];
+  }
 
-    return -1.0;
+  return -1.0;
 }
 
-export{}
+export {};

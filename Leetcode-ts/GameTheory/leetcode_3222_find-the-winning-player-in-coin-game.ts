@@ -15,8 +15,8 @@ The time complexity is O(1), and the space complexity is O(1).
 */
 
 function losingPlayer(x: number, y: number): string {
-    const k = Math.min(Math.floor(x / 2), Math.floor(y / 8));
-    x -= k * 2;
-    y -= k * 8;
-    return x && y >= 4 ? 'Alice' : 'Bob';  
-};
+  const k = Math.min(Math.floor(x / 2), Math.floor(y / 8));
+  x -= k * 2;
+  y -= k * 8;
+  return x && y >= 4 ? "Alice" : "Bob";
+}

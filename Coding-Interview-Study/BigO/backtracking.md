@@ -14,7 +14,7 @@ b = branching factor (choices at each step)
 d = depth
 
 Time complexity: O(b^d)
-Space complexity: O(d)   // due to recursion stack
+Space complexity: O(d) // due to recursion stack
 
 ## Typical Examples
 
@@ -39,7 +39,7 @@ function subsets(nums) {
       current.pop();
     }
   }
-  
+
   backtrack(0, []);
   return result;
 }

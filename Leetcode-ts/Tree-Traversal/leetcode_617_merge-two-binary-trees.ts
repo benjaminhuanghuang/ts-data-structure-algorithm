@@ -8,7 +8,7 @@ import { TreeNode } from "../Common/TreeNode";
 
 function mergeTrees(
   root1: TreeNode | null,
-  root2: TreeNode | null,
+  root2: TreeNode | null
 ): TreeNode | null {
   if (root1 === null) return root2;
   if (root2 === null) return root1;

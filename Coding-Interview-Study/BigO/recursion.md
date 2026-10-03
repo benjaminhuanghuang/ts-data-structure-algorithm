@@ -38,4 +38,4 @@ factorial(n) {
 Calculate n to 1, the time complexity is O(N)
 
 - Time/Space Complexity of Recursive Algorithms(Hua hua)
-<https://www.youtube.com/watch?v=OQi4n8EKRD8&list=PLLuMmzMTgVK5Hy1qcWYZcd7wVQQ1v0AjX&index=20>
+  <https://www.youtube.com/watch?v=OQi4n8EKRD8&list=PLLuMmzMTgVK5Hy1qcWYZcd7wVQQ1v0AjX&index=20>

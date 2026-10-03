@@ -22,31 +22,31 @@ https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/
 Time complexity is O(m + n)。
 */
 function countNegatives(grid: number[][]): number {
-     const rowCount = grid.length;
-     const columnCount = grid[0].length;
-     
-     let negativeCount = 0;
- 
-     // Start from the bottom-left corner of the grid
-     let row = rowCount - 1;
-     let column = 0;
- 
-     // Loop until we reach the top of the grid or the end of a row
-     while (row >= 0 && column < columnCount) {
-         // If the current number is negative,
-         // add all remaining negatives in the row to the counter
-         // (as the row is sorted in non-increasing order)
-         if (grid[row][column] < 0) {
-             // All numbers to the right of the current position are negative
-             negativeCount += columnCount - column;
-             // Move up to the previous row since we've counted all negatives in the current row
-             row--;
-         } else {
-             // If the current number is non-negative, move right to the next column
-             column++;
-         }
-     }
- 
-     // Return total count of negative numbers
-     return negativeCount;
-};
+  const rowCount = grid.length;
+  const columnCount = grid[0].length;
+
+  let negativeCount = 0;
+
+  // Start from the bottom-left corner of the grid
+  let row = rowCount - 1;
+  let column = 0;
+
+  // Loop until we reach the top of the grid or the end of a row
+  while (row >= 0 && column < columnCount) {
+    // If the current number is negative,
+    // add all remaining negatives in the row to the counter
+    // (as the row is sorted in non-increasing order)
+    if (grid[row][column] < 0) {
+      // All numbers to the right of the current position are negative
+      negativeCount += columnCount - column;
+      // Move up to the previous row since we've counted all negatives in the current row
+      row--;
+    } else {
+      // If the current number is non-negative, move right to the next column
+      column++;
+    }
+  }
+
+  // Return total count of negative numbers
+  return negativeCount;
+}

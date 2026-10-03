@@ -6,7 +6,6 @@ https://leetcode.com/problems/next-permutation/
 [Meta]
 */
 
-
 /*
 Solution: 
 Find the min number that is greater than the current number.
@@ -29,34 +28,34 @@ Space complexity: O(1)
 */
 
 function nextPermutation(nums: number[]): void {
-    let i = nums.length - 2;
+  let i = nums.length - 2;
 
-    // Find the first decreasing element
-    // 找到从递增到递减的转折点 ^
-    while (i >= 0 && nums[i + 1] <= nums[i]) {
-        i--;
+  // Find the first decreasing element
+  // 找到从递增到递减的转折点 ^
+  while (i >= 0 && nums[i + 1] <= nums[i]) {
+    i--;
+  }
+
+  // the number n[i] to n[n-1] is in descending order
+  // Find the min number that is greater than the pivot number, nums[i]
+  if (i >= 0) {
+    let j = nums.length - 1;
+    while (j >= 0 && nums[j] <= nums[i]) {
+      j--;
     }
+    // Swap nums[i] and nums[j]
+    [nums[i], nums[j]] = [nums[j], nums[i]];
+  }
 
-    // the number n[i] to n[n-1] is in descending order
-    // Find the min number that is greater than the pivot number, nums[i]
-    if (i >= 0) {
-        let j = nums.length - 1;
-        while (j >= 0 && nums[j] <= nums[i]) {
-            j--;
-        }
-        // Swap nums[i] and nums[j]
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    }
-
-    // Reverse the elements from i + 1 to the end of the array
-    reverse(nums, i + 1);
+  // Reverse the elements from i + 1 to the end of the array
+  reverse(nums, i + 1);
 }
 
 function reverse(nums: number[], start: number): void {
-    let end = nums.length - 1;
-    while (start < end) {
-        [nums[start], nums[end]] = [nums[end], nums[start]];
-        start++;
-        end--;
-    }
+  let end = nums.length - 1;
+  while (start < end) {
+    [nums[start], nums[end]] = [nums[end], nums[start]];
+    start++;
+    end--;
+  }
 }

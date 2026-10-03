@@ -8,7 +8,6 @@ https://leetcode.com/problems/decode-ways/
 
 */
 
-
 /*
   The easiest solution to understand.
   
@@ -23,29 +22,30 @@ https://leetcode.com/problems/decode-ways/
   
 */
 function numDecodings(s: string): number {
-    if (s.length === 0 || s[0] === '0') {
-        return 0;
+  if (s.length === 0 || s[0] === "0") {
+    return 0;
+  }
+
+  const dp: number[] = new Array(s.length + 1).fill(0);
+  dp[0] = 1;
+
+  for (let i = 1; i < dp.length; ++i) {
+    let way = 0;
+
+    if (s[i - 1] !== "0") {
+      // treat s[i] as a single number, need check s[i-1]
+      way += dp[i - 1];
     }
 
-    const dp: number[] = new Array(s.length + 1).fill(0);
-    dp[0] = 1;
-
-    for (let i = 1; i < dp.length; ++i) {
-        let way = 0;
-
-        if (s[i - 1] !== '0') { // treat s[i] as a single number, need check s[i-1] 
-            way += dp[i - 1];
-        }
-
-        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
-            way += dp[i - 2];
-        }
-
-        dp[i] = way;
+    if (i > 1 && (s[i - 2] === "1" || (s[i - 2] === "2" && s[i - 1] <= "6"))) {
+      way += dp[i - 2];
     }
 
-    return dp[dp.length - 1];
-};
+    dp[i] = way;
+  }
+
+  return dp[dp.length - 1];
+}
 /*
 Hauhua
 https://www.youtube.com/watch?v=OjEHST4SXfE
@@ -73,30 +73,33 @@ Solution 2: DP
 */
 
 function numDecodings2(s: string): number {
-    if (s.length === 0) {
-        return 0;
+  if (s.length === 0) {
+    return 0;
+  }
+
+  const memo: { [key: string]: number } = { "": 1 };
+
+  function ways(subs: string): number {
+    if (subs in memo) {
+      return memo[subs];
     }
 
-    const memo: { [key: string]: number } = { "": 1 };
-
-    function ways(subs: string): number {
-        if (subs in memo) {
-            return memo[subs];
-        }
-
-        if (subs[0] === '0') {
-            return 0;
-        }
-
-        let totalWays = ways(subs.slice(1)); // Decode as a single character
-
-        if (subs.length >= 2 && (subs[0] === '1' || (subs[0] === '2' && subs[1] <= '6'))) {
-            totalWays += ways(subs.slice(2)); // Decode as a double character
-        }
-
-        memo[subs] = totalWays;
-        return totalWays;
+    if (subs[0] === "0") {
+      return 0;
     }
 
-    return ways(s);
+    let totalWays = ways(subs.slice(1)); // Decode as a single character
+
+    if (
+      subs.length >= 2 &&
+      (subs[0] === "1" || (subs[0] === "2" && subs[1] <= "6"))
+    ) {
+      totalWays += ways(subs.slice(2)); // Decode as a double character
+    }
+
+    memo[subs] = totalWays;
+    return totalWays;
+  }
+
+  return ways(s);
 }

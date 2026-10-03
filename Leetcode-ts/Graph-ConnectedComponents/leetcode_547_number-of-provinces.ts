@@ -18,52 +18,58 @@ and mark all nodes as visited
 200. Number of Islands
 */
 function findCircleNum(isConnected: number[][]): number {
-    if (isConnected.length === 0) return 0;
-    const n = isConnected.length;
-    let ans = 0;
-    const visited = Array(n).fill(false);
+  if (isConnected.length === 0) return 0;
+  const n = isConnected.length;
+  let ans = 0;
+  const visited = Array(n).fill(false);
 
-    for (let i = 0; i < n; ++i) {
-        if (visited[i]) continue;
-        dfs(isConnected, i, n, visited);  // mark all friends as visited
-        ++ans;
-    }
-    return ans;
-};
+  for (let i = 0; i < n; ++i) {
+    if (visited[i]) continue;
+    dfs(isConnected, i, n, visited); // mark all friends as visited
+    ++ans;
+  }
+  return ans;
+}
 
 // Curr is the center of the connected components
-function dfs(isConnected: number[][], curr: number, n: number, visited: boolean[]): void {
-    if (visited[curr]) return;
-    visited[curr] = true;
+function dfs(
+  isConnected: number[][],
+  curr: number,
+  n: number,
+  visited: boolean[]
+): void {
+  if (visited[curr]) return;
+  visited[curr] = true;
 
-    // Visit all friends (neighbors)
-    for (let i = 0; i < n; ++i) {
-        if (isConnected[curr][i] === 1 && !visited[i])   // Mark as visited
-            dfs(isConnected, i, n, visited);
-    }
+  // Visit all friends (neighbors)
+  for (let i = 0; i < n; ++i) {
+    if (isConnected[curr][i] === 1 && !visited[i])
+      // Mark as visited
+      dfs(isConnected, i, n, visited);
+  }
 }
 
 /*
     Cut of the visit element instead of marking it as visited
 */
 function findCircleNum2(isConnected: number[][]): number {
-    if (isConnected.length === 0) return 0;
-    const n = isConnected.length;
-    let ans = 0;
+  if (isConnected.length === 0) return 0;
+  const n = isConnected.length;
+  let ans = 0;
 
-    for (let i = 0; i < n; ++i) {
-        if (isConnected[i][i] === 0) continue;
-        ++ans;
-        dfs2(isConnected, i, n);
-    }
-    return ans;
-};
+  for (let i = 0; i < n; ++i) {
+    if (isConnected[i][i] === 0) continue;
+    ++ans;
+    dfs2(isConnected, i, n);
+  }
+  return ans;
+}
 
 function dfs2(isConnected: number[][], curr: number, n: number): void {
-    // Visit all friends (neighbors)
-    for (let i = 0; i < n; ++i) {
-        if (isConnected[curr][i] === 0) continue;
-        isConnected[curr][i] = isConnected[i][curr] = 0;   // Mark as visited
-        dfs2(isConnected, i, n);
-    }
+  // Visit all friends (neighbors)
+  for (let i = 0; i < n; ++i) {
+    if (isConnected[curr][i] === 0) continue;
+    isConnected[curr][i] = isConnected[i][curr] = 0; // Mark as visited
+    dfs2(isConnected, i, n);
+  }
 }

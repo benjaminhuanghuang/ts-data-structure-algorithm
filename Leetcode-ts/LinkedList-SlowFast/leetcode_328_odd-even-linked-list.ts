@@ -4,9 +4,7 @@
 https://leetcode.com/problems/odd-even-linked-list/
 */
 
-
-import { ListNode } from '../Common/ListNode';
-
+import { ListNode } from "../Common/ListNode";
 
 function oddEvenList(head: ListNode | null): ListNode | null {
   if (!head) {
@@ -27,4 +25,4 @@ function oddEvenList(head: ListNode | null): ListNode | null {
   slow.next = evenHead;
 
   return head;
-};
+}
