@@ -1,12 +1,12 @@
 
 # Combination - Huahua
 
+## Combination: order does not matter
+
 花花酱 LeetCode 78. Subsets <https://www.youtube.com/watch?v=CUzm-buvH_8>
 
 Time complexity: O(N * 2^N)
 Space complexity: O(N)
-
-![](./permutaion-combination-HuaHua.png)
 
 d: recursion depth
 n: take how many numbers
@@ -14,56 +14,62 @@ n: take how many numbers
 Combination: 每一层递归只使用 start index 后面的number
 s: start index
 
-## Combination: order does not matter
-
-```python
-nums = [...]
-ans = []
+```js
+const nums = [...];
+const ans = [];
 
 // C(m,n)
-for i = 0 to nums.size():
-    dfs(i, 0, [])    // i is the length of the combination
+for (let i = 0; i <= nums.length; i++) {
+    dfs(i, 0, []);   // i is the length of the combination
+}
 
 // n is length of the combination
 // s is starting index
-func dfs(n, s, cur):
-    if cur.size() == n:   // find a answer
-        ans.append(cur)
-        return
-    for i = s to nums.size():
-        cur.append(nums[i])
+function dfs(n, s, cur) {
+    if (cur.length === n) {   // find a answer
+        ans.push([...cur]);
+        return;
+    }
+    for (let i = s; i < nums.length; i++) {
+        cur.push(nums[i]);
 
-        dfs(n, i + 1 , curr)
+        dfs(n, i + 1, cur);
 
-        cur.pop()
+        cur.pop();
+    }
+}
 ```
 
 ## Permutation: order matters
 
-```python
-nums = [...]
-ans = []
-used = [False] * nums.size()
+```js
+const nums = [...];
+const ans = [];
+const used = new Array(nums.length).fill(false);
 
 // P(m, n)
-for i=0 to nums.size()
-    dfs(i, 0 , [])
+for (let i = 0; i <= nums.length; i++) {
+    dfs(i, []);
+}
 
-func dfs(n, curr):
-    if cur.size() == n:
-        ans.append(cur)
-        return
+function dfs(n, cur) {
+    if (cur.length === n) {
+        ans.push([...cur]);
+        return;
+    }
 
-    for i = 0 to nums.size(): # from index 0
-        if used[i]: continue
+    for (let i = 0; i < nums.length; i++) {  // from index 0
+        if (used[i]) continue;
 
-        used[i] = true    #
-        cur.append(nums[i])
+        used[i] = true;
+        cur.push(nums[i]);
 
-        dfs(n, curr)
+        dfs(n, cur);
 
-        cur.pop()
-        used[i] = false
+        cur.pop();
+        used[i] = false;
+    }
+}
 ```
 
 ## 什么时候需要排序
