@@ -24,11 +24,14 @@ function permute(nums: number[]): number[][] {
     for (let i = 0; i < nums.length; i++) {
       if (used[i]) continue;
 
+      // choose
       used[i] = true;
       path.push(nums[i]);
 
+      // explore
       backtrack();
 
+      // undo
       path.pop();
       used[i] = false;
     }

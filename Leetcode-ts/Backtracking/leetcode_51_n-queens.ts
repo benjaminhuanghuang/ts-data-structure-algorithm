@@ -9,13 +9,13 @@ https://leetcode.com/problems/n-queens/
 
     Hint: each row has one queen, each column has one queen, each diagonal has one queen
         Only need to check row, row + 1.....
-    descibe the diagonal: There are 
+    describe the diagonal: There are 
         2N-1 diaonla line (right top to left bottom) the index is x + y
         and 2N-1 diagonal line (left top to right bottom) the index is x - y + n - 1
 
     The sudo code:
 
-    availabl(x,y):
+    available(x,y):
         return !col[x] && !diag1(x+y) && !diag2(x,y) 
 
     # y is the row number  
@@ -30,7 +30,7 @@ https://leetcode.com/problems/n-queens/
             
             put_queen(x, y, b)
             n_queens(y+1, n, b, ans)
-            romove_queen(x, y, b)
+            remove_queen(x, y, b)
 
 */
 function solveNQueens(n: number): string[][] {
