@@ -50,6 +50,32 @@ function upperBound(nums, target) {
 
 ```
 
+### Find first YES
+
+<https://www.youtube.com/watch?v=25086D5uZmY>
+
+迭代的不变式：区间包含第一个x 并且p(x)是true
+
+```js
+// [lo, hi)
+function binarySearch(lo, hi, p) {
+  while (lo < hi) {
+    const mid = lo + Math.floor((hi - lo) / 2);
+    if (p(mid)) {
+      hi = mid;
+    } else {
+      lo = mid + 1;
+    }
+  }
+
+  if (!p(lo)) {
+    throw new Error("p(x) is false for all x in S!");
+  }
+
+  return lo; // lo is the least x for which p(x) is true
+}
+```
+
 ## Complexity
 
 Time: O(log n) — 每步砍掉一半
