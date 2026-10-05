@@ -87,7 +87,7 @@ function dfs(n, cur) {
 
 ## Permutation
 
-time complexity O(n × n!)
+time complexity O(n × n!) "O of n times n factorial."
 全排列总共有 n! 种可能, 每次构造一个长度为 n 的排列，需要 O(n) 的操作（例如 push / copy / join）
 
 space complexity
