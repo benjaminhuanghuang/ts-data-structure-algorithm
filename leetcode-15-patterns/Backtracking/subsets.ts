@@ -8,7 +8,8 @@ subset — record it on entry to each call. Start the inner loop at the
 current index (not 0) to only move forward, which avoids generating the same
 subset in a different order.
 
-Time big O of n * 2^n, space big O of n for the recursion stack.
+Time complexity: big O of n * 2^n, 
+Space complexity: big O of n for the recursion stack.
 */
 function subsets(nums: number[]): number[][] {
   const result: number[][] = [];
@@ -25,5 +26,6 @@ function subsets(nums: number[]): number[][] {
   }
 
   backtrack(0);
+
   return result;
 }
