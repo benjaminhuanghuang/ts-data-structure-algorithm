@@ -25,8 +25,8 @@ Space complexity: O(d) // due to recursion stack
 
 | Problem             | Typical Backtracking Complexity   |
 | ------------------- | --------------------------------- |
-| N-Queens            | `O(N!)` or approximately `O(N^N)` |
-| Sudoku solver       | `O(9^N)` (exponential)            |
+| N-Queens            | `O(N!)`big O of N factorial or approximately `O(N^N)`|
+| Sudoku solver       | `O(9^N)` (exponential)|
 | Subsets / Power set | `O(2^N)`                          |
 | Permutations        | `O(N · N!)`                       |
 | Combination Sum     | `O(k^N)` (exponential)            |
